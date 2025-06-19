@@ -1,0 +1,70 @@
+<form method="post" action="/signup.php">
+<table align=center><TR><TD>
+  <table style="text-align: left;" border="0" cellpadding="4" cellspacing="0">
+    <tbody>
+      <tr style="background: url('carrier/ico/login-header.png');background-repeat:repeat-x; background-color:'#2949DD';">
+	<TH colspan=4 align=center height=59><h2><span class="text_02">TrkDispatch</span> Signup</h2></TH></TR>
+      <tr bgcolor="#bebebe">
+        <th>Name</th>
+        <td><input name="Name" value="<?php echo $Name;?>" required></td>
+        <th>Company</th>
+        <td><input name="Company" value="<?php echo $Company;?>" required></td>
+      </tr>
+      <tr bgcolor="#bebebe">
+        <th rowspan=4>Address</th>
+        <td rowspan=4><textarea cols="16" rows="3" name="Address" required><?php echo $Address;?></textarea></td></TR>
+        <TR bgcolor="#bebebe"><th>City</th><td><input name="City" required value="<?php echo $City;?>"></TD></TR>
+	<TR bgcolor="#bebebe"><TH>State</TH><TD><select name="State"><option>--</option>
+<option value='AL'>AL</option><option value='AK'>AK</option><option value='AZ'>AZ</option><option value='AR'>AR</option><option value='CA'>CA</option><option value='CO'>CO</option>
+<option value='CT'>CT</option><option value='DE'>DE</option><option value='DC'>DC</option><option value='FL'>FL</option><option value='GA'>GA</option><option value='HI'>HI</option>
+<option value='ID'>ID</option><option value='IL'>IL</option><option value='IN'>IN</option><option value='IA'>IA</option><option value='KS'>KS</option><option value='KY'>KY</option>
+<option value='LA'>LA</option><option value='ME'>ME</option><option value='MD'>MD</option><option value='MA'>MA</option><option value='MI'>MI</option><option value='MN'>MN</option>
+<option value='MS'>MS</option><option value='MO'>MO</option><option value='MT'>MT</option><option value='NE'>NE</option><option value='NV'>NV</option><option value='NH'>NH</option>
+<option value='NJ'>NJ</option><option value='NM'>NM</option><option value='NY'>NY</option><option value='NC'>NC</option><option value='ND'>ND</option><option value='OH'>OH</option>
+<option value='OK'>OK</option><option value='OR'>OR</option><option value='PA'>PA</option><option value='RI'>RI</option><option value='SC'>SC</option><option value='SD'>SD</option>
+<option value='TN'>TN</option><option value='TX'>TX</option><option value='UT'>UT</option><option value='VT'>VT</option><option value='VA'>VA</option><option value='WA'>WA</option>
+<option value='WV'>WV</option><option value='WI'>WI</option><option value='WY'>WY</option></select></TD></TR>
+<TR bgcolor="#bebebe"><TH>Zip</TH><TD><input name="Zip" required value="<?php echo $Zip;?>"></td></tr>
+      <tr bgcolor="#bebebe">
+        <th>Country</th>
+        <td>
+        <select name="Country" required>
+        <option selected="selected">USA</option>
+        <option>Canada</option>
+        </select>
+        </td>
+	<tH>MC</tH>
+        <td><input name="MC" value="<?php echo $MC;?>"></td>
+      </tr>
+      <tr bgcolor="#bebebe">
+        <th>Email</th>
+        <td colspan=3><input name="Email" value="<?php echo $Email;?>" required size=60></td>
+      </tr>
+      <tr bgcolor="#bebebe">
+        <th>Phone</th>
+        <td><input name="Phone" value="<?php echo $Phone;?>"required></td>
+        <tH>Fax</tH>
+        <td><input name="Fax" value="<?php echo $Fax;?>"></td>
+      </tr>
+      <tr bgcolor="#bebebe">
+        <tH>Username</th>
+        <td><input name="rUsername" value="<?php echo $rUsername;?>" required></td>
+        <tH>Password</th>
+        <td><input name="rPassword" value="<?php echo $rPassword;?>" required></td>
+      </tr>
+      <tr bgcolor="#bebebe">
+        <tH>Coupon</th>
+        <td colspan=3><input name="Coupon" value="<?php echo $Coupon;?>" size=40></td>
+      </tr>
+      <tr bgcolor="#bebebe">
+	<TD colspan=2 align=center><input type=checkbox checked name=tos value='Accept' required>
+ <a href='tos.php' onclick="javascript:void window.open('/tos.php','TOS','width=350,height=300,toolbar=0,menubar=0,location=0,status=0,scrollbars=1,resizable=1,left=0,top=0');return false;">Terms & condition</a> &nbsp; </TD>
+        <th colspan=2><input type=submit name=submit value="Sign-Up" style="background: rgb(247, 247, 247);color:#333333;font-size:18px;"></TH>
+	</th></tr>
+
+    </tbody>
+  </table>
+</TD></TR>
+<TR><TD class="header_wrap2">&nbsp;</TD></TR>
+</TABLE>
+</form>
