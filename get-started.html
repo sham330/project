@@ -7,49 +7,377 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
 
     <!--====== Title ======-->
    <title>TRKDispatch - Get Started</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+   
 
     <!--====== Favicon Icon ======-->
     <link rel="shortcut icon" href="assets/images/favicon.png" type="image/png">
 
-    <!--====== Bootstrap css ======-->
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="./css/index.css">
 
-    <!--====== Fontawesome css ======-->
-    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+<style>
+   /* Hero Section */
+        .hero-section {
+            background: url('assets/images/truck4.jpg') center/cover no-repeat;
+            padding: 120px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
 
-    <!--====== Line Icons css ======-->
-    <link rel="stylesheet" href="assets/css/LineIcons.css">
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 1;
+        }
 
-    <!--====== Flaticon css ======-->
-    <link rel="stylesheet" href="assets/css/flaticon.css">
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: var(--white);
+        }
 
-    <!--====== Magnific Popup css ======-->
-    <link rel="stylesheet" href="assets/css/magnific-popup.css">
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--white);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
 
-    <!--====== Gijgo css ======-->
-    <link rel="stylesheet" href="assets/css/gijgo.min.css">
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--white);
+            max-width: 600px;
+            margin: 0 auto;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        }
 
-    <!--====== Nice Select css ======-->
-    <link rel="stylesheet" href="assets/css/nice-select.css">
+        /* Breadcrumb Section */
+        .breadcrumb-section {
+            background: var(--white);
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
 
-    <!--====== Time Picker css ======-->
-    <link rel="stylesheet" href="assets/css/jquery.timepicker.min.css">
+        .breadcrumb {
+            display: flex;
+            justify-content: flex-end;
+            list-style: none;
+            margin: 0;
+        }
 
-    <!--====== Animate css ======-->
-    <link rel="stylesheet" href="assets/css/animate.css">
+        .breadcrumb li {
+            display: flex;
+            align-items: center;
+            font-size: 0.875rem;
+        }
 
-    <!--====== Slick css ======-->
-    <link rel="stylesheet" href="assets/css/slick.css">
+        .breadcrumb li:not(:last-child)::after {
+            content: '/';
+            margin: 0 0.5rem;
+            color: var(--text-light);
+        }
 
-    <!--====== Default css ======-->
-    <link rel="stylesheet" href="assets/css/default.css">
+        .breadcrumb a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
 
-    <!--====== Style css ======-->
-    <link rel="stylesheet" href="assets/css/style.css">
+        .breadcrumb a:hover {
+            color: var(--primary-color);
+        }
 
+        /* Main Content */
+        .main-content {
+            background: var(--white);
+            padding: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+
+        .brand-highlight {
+            color: var(--primary-color);
+            font-weight: 800;
+        }
+
+        .intro-text {
+            font-size: 1.125rem;
+            color: var(--text-light);
+            line-height: 1.8;
+            max-width: 900px;
+            margin: 0 auto 2rem;
+            text-align: left;
+        }
+
+        /* Benefits Grid */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .benefit-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-color);
+        }
+
+        .benefit-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            border-radius: 12px 12px 0 0;
+        }
+
+        .benefit-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            color: var(--white);
+            font-size: 1.5rem;
+        }
+
+        .benefit-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+
+        .benefit-description {
+            color: var(--text-light);
+            line-height: 1.6;
+            font-size: 1rem;
+        }
+
+        /* Call to Action */
+        .cta-section {
+            background: linear-gradient(135deg, var(--text-dark) 0%, var(--secondary-color) 100%);
+            padding: 60px 0;
+            color: var(--white);
+        }
+
+        .cta-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+
+        .cta-text {
+            flex: 1;
+        }
+
+        .cta-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+
+        .cta-description {
+            font-size: 1rem;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        .cta-btn {
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 0.75rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow);
+        }
+
+        .cta-btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero-section {
+                padding: 100px 0 60px;
+            }
+
+            .hero-title {
+                font-size: 3rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.125rem;
+            }
+
+            .section-title {
+                font-size: 2.25rem;
+            }
+
+            .benefits-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            }
+
+            .cta-content {
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+           
+            .hero-section {
+                margin-top: 80px;
+                padding: 80px 0 50px;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+                max-width: 90%;
+            }
+
+            .breadcrumb {
+                justify-content: center;
+            }
+
+            .main-content {
+                padding: 60px 0;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .intro-text {
+                font-size: 1rem;
+                max-width: 100%;
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .benefit-card {
+                padding: 1.5rem;
+            }
+
+            .cta-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 1.5rem;
+            }
+
+            .cta-title {
+                font-size: 1.6rem;
+            }
+
+            .cta-description {
+                font-size: 0.95rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-section {
+                margin-top: 70px;
+                padding: 60px 0 40px;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 0.9rem;
+                max-width: 95%;
+            }
+
+            .main-content {
+                padding: 40px 0;
+            }
+
+            .section-title {
+                font-size: 1.75rem;
+            }
+
+            .intro-text {
+                font-size: 0.9rem;
+            }
+
+            .benefit-card {
+                padding: 1.25rem;
+            }
+
+            .benefit-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 1.25rem;
+            }
+
+            .benefit-title {
+                font-size: 1.125rem;
+            }
+
+            .benefit-description {
+                font-size: 0.9rem;
+            }
+
+            .cta-title {
+                font-size: 1.4rem;
+            }
+
+            .cta-description {
+                font-size: 0.9rem;
+            }
+        }
+</style>
 
 </head>
 
@@ -78,66 +406,106 @@
 
     <!--====== HEADER PART START ======-->
 
-    <header class="header-area">
+   <header class="header">
         <div class="header-top pb-10">
             <div class="container">
-              <div class="row">
-                <div class="col-lg-12">
-                  <div class="header-top-content d-md-flex justify-content-between align-items-center">
-                    <div class="header-info pt-10 d-none d-md-block">
-                      <ul>
-                        <li>www.trkdispatch.com</li>
-                      </ul>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="header-top-content d-md-flex justify-content-between align-items-center">
+                            <div class="header-info pt-10 d-none d-md-block">
+                                <ul>
+                                    <li>www.trkdispatch.com</li>
+                                </ul>
+                            </div>
+                            <!-- header info -->
+                            <div class="header-social text-center text-md-right pt-10">
+                                <ul>
+                                    <li><a href="sign-up.html">Sign Up</a></li>
+                                    <li><a href="log_in.html">Log In</a></li>
+                                    <li><a href="contact.html">Contact Us</a></li>
+                                    <li><a href="#footerlinks">Links</a></li>
+                                </ul>
+                            </div>
+                            <!-- header social -->
+                        </div>
                     </div>
-                    <!-- header info -->
-                    
-                    <div class="header-social text-center text-md-right pt-10">
-                      <ul>
-                        <li><a href="sign-up.html">Sign Up</a></li>
-                        <li><a href="log_in.html">Log In</a></li>
-                        <li><a href="contact.html">Contact Us</a></li>
-                        <li><a href="#footerlinks">Links</a></li>
-                      </ul>
-                    </div>
-                    <!-- header social --> 
-                  </div>
                 </div>
-              </div>
-              <!-- row --> 
+                <!-- row -->
             </div>
-            <!-- container --> 
-          </div>
-          <!-- header-top -->
-
-          <div class="navigation navigation-two">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <nav class="navbar navbar-expand-lg"> <a class="navbar-brand" href="index.html"> <img src="assets/images/teckusa.png" alt="Logo" width="170px"><br><p class="tagline">Easy way of dispatch <span class="tagline_trk">TRK DISPATCH</span></p></a> <!-- Logo -->
-            
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="toggler-icon"></span> <span class="toggler-icon"></span> <span class="toggler-icon"></span> </button>
-            <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
-              <ul class="navbar-nav ml-auto">
-                <li class="nav-item"> <a href="features.html">Features</a> </li>
-                <li class="nav-item"> <a href="carriers.html">Carriers</a> </li>
-                <li class="nav-item"> <a href="owner_operator.html">Owner Operators</a> </li>
-                <li class="nav-item"> <a href="screenshots.html">Screenshots</a> </li>
-                <li class="nav-item"> <a href="get-started.html">Get Started</a> </li>
-              </ul>
-              <!-- navbar-nav --> 
-            </div>
-            <!-- navbar-collapse -->
-            
-            <div class="navbar-btn d-none d-sm-block"><a class="main-btn" href="tel:4638888803"><img src="assets/images/call.png"> Call Us (463) 888 8803</a>  </div>
-          </nav>
-          <!-- navbar --> 
+            <!-- container -->
         </div>
-      </div>
-      <!-- row --> 
-    </div>
-    <!-- container --> 
-  </div>
-  <!-- navigation --> 
+        <!-- header-top -->
+
+        <nav class="navbar">
+            <div class="container">
+                <div class="navbar-content">
+                    <a href="index.html" class="logo">
+                        <img src="assets/images/teckusa.png" alt="TRK Dispatch Logo">
+                        <div class="logo-text">
+                            <div class="logo-title">TRK DISPATCH</div>
+                            <div class="logo-subtitle">Professional Dispatch Software</div>
+                        </div>
+                    </a>
+
+                    <ul class="nav-menu">
+                        <li><a href="features.html">Features</a></li>
+                        <li><a href="carriers.html">Carriers</a></li>
+                        <li><a href="owner_operator.html">Owner Operators</a></li>
+                        <li><a href="screenshots.html">Screenshots</a></li>
+                        <li><a style="color:#f57c1f;"   href="get-started.html">Get Started</a></li>
+                    </ul>
+
+                    <div class="nav-actions">
+                        <a href="tel:4638888803" class="cta-button">
+                            <i class="fas fa-phone"></i>
+                            (463) 888-8803
+                        </a>
+                    </div>
+
+                    <!-- Mobile Menu Toggle -->
+                    <button class="menu-toggle" id="menuToggle">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <div class="mobile-nav-content">
+                <ul class="mobile-nav-links">
+                    <li><a href="features.html">Features</a></li>
+                    <li><a href="carriers.html">Carriers</a></li>
+                    <li><a href="owner_operator.html">Owner Operators</a></li>
+                    <li><a href="screenshots.html">Screenshots</a></li>
+                    <li><a href="get-started.html">Get Started</a></li>
+                    <li><a href="sign-up.html">Sign Up</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+
+                <div class="mobile-nav-actions">
+                    <a href="log_in.html" class="login-btn">Login</a>
+                    <a href="tel:4638888803" class="cta-button">
+                        <i class="fas fa-phone"></i>
+                        Call (463) 888-8803
+                    </a>
+                </div>
+
+                <div class="mobile-contact-info">
+                    <h4>Contact Information</h4>
+                    <div class="mobile-contact-item">
+                        <i class="fas fa-globe"></i>
+                        <span>www.trkdispatch.com</span>
+                    </div>
+                    <div class="mobile-contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>info@trkdispatch.com</span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </header>
 
     <!--====== HEADER PART ENDS ======-->
@@ -175,220 +543,205 @@
     
     <!--====== GET STARTED PART START ======-->
 
-   <section class="carriers-page">
+   <!-- Hero Section -->
+    <section class="hero-section">
         <div class="container">
-            <div class="col-xl-12">
-                <h2>What <span style="color:#0171ba; font-weight: bold">TrkDispatch</span> Truck Software Can Do For You</h2>
-                <p><span style="color:#0171ba; font-weight: bold">TrkDispatch</span> trucking software will help you maximize your operational efficiency and managerial capability. It will help you to reduce wasted time and effort, improve productivity and increase your revenue. TrkDispatch is the solution you need for tracking, managing and maintaining fleet assets. There may be other programs that offer some of the functionality of TrkDispatch, but only our software will help you realize the true potential of your company.</p>
-
-                <p><span style="color:#0171ba; font-weight: bold">TrkDispatch</span> will provide your company with an affordable license, which will enable you to use TrkDispatch without changing your computer infrastructure. TrkDispatch is highly sophisticated, advanced and easy-to-use, and it will give you all the tools you need to grow your business and satisfy your customers, increasing your revenue and lowering your costs.</p>
-
-                <p><span style="color:#0171ba; font-weight: bold">TrkDispatch</span> contains offers all of the functionality you require, and our dispatching, accounting and reporting tools will help you address your everyday needs and make it easy to manage your business.</p>
-
-                <p><span style="color:#0171ba; font-weight: bold">TrkDispatch</span> will enable you to access real-time data quickly and easily with no defects and with multi-layered security. The program is flexible, scalable and is equipped with problem-locating and problem-solving utilities</p>  
+            <div class="hero-content">
+                <h1 class="hero-title">Get Started</h1>
+                <p class="hero-subtitle">Begin your journey with professional truck dispatch software</p>
             </div>
         </div>
     </section>
-   
 
-    <!--====== GET STARTED PART ENDS ======-->
-
-    <!--====== CALL TO ACTION PART START ======-->
-
-    <section class="call-action-area">
+    <!-- Breadcrumb -->
+    <section class="breadcrumb-section">
         <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-10">
-                    <div class="call-action d-lg-flex justify-content-between align-items-center">
-                        <div class="action-content">
-                            <h3 class="action-title">Don’t hasitate to contact us!</h3>
-                            <p class="text">We tried to give as much information as possible in brief. However, you may have some questions or need some more information. Please feel free to reach us. </p>
-                        </div> <!-- action content -->
-                        <div class="action-btn">
-                            <a class="main-btn" href="contact.html">Reach Us</a>
-                        </div> <!-- action btn -->
-                    </div> <!-- call action -->
+            <ul class="breadcrumb">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">Get Started</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="main-content">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    What <span class="brand-highlight">TrkDispatch</span> Truck Software Can Do For You
+                </h2>
+                
+                <div class="intro-text">
+                    <p><span class="brand-highlight">TrkDispatch</span> trucking software will help you maximize your operational efficiency and managerial capability. It will help you to reduce wasted time and effort, improve productivity and increase your revenue. TrkDispatch is the solution you need for tracking, managing and maintaining fleet assets. There may be other programs that offer some of the functionality of TrkDispatch, but only our software will help you realize the true potential of your company.</p>
+
+                    <p><span class="brand-highlight">TrkDispatch</span> will provide your company with an affordable license, which will enable you to use TrkDispatch without changing your computer infrastructure. TrkDispatch is highly sophisticated, advanced and easy-to-use, and it will give you all the tools you need to grow your business and satisfy your customers, increasing your revenue and lowering your costs.</p>
+
+                    <p><span class="brand-highlight">TrkDispatch</span> contains offers all of the functionality you require, and our dispatching, accounting and reporting tools will help you address your everyday needs and make it easy to manage your business.</p>
+
+                    <p><span class="brand-highlight">TrkDispatch</span> will enable you to access real-time data quickly and easily with no defects and with multi-layered security. The program is flexible, scalable and is equipped with problem-locating and problem-solving utilities.</p>
                 </div>
-            </div> <!-- row -->
-        </div> <!-- container -->
+            </div>
+
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h4 class="benefit-title">Maximize Efficiency</h4>
+                    <p class="benefit-description">
+                        Streamline your operations with advanced tools designed to reduce wasted time and effort while improving overall productivity across your fleet management.
+                    </p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <h4 class="benefit-title">Increase Revenue</h4>
+                    <p class="benefit-description">
+                        Boost your bottom line with comprehensive tracking and management features that help you identify opportunities and optimize your business operations.
+                    </p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h4 class="benefit-title">Fleet Asset Management</h4>
+                    <p class="benefit-description">
+                        Complete solution for tracking, managing, and maintaining your fleet assets with real-time monitoring and detailed reporting capabilities.
+                    </p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-laptop"></i>
+                    </div>
+                    <h4 class="benefit-title">No Infrastructure Changes</h4>
+                    <p class="benefit-description">
+                        Get started immediately with our affordable licensing model that works with your existing computer infrastructure - no costly upgrades required.
+                    </p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h4 class="benefit-title">Easy-to-Use Interface</h4>
+                    <p class="benefit-description">
+                        Sophisticated and advanced features wrapped in an intuitive, user-friendly interface that your team can master quickly and efficiently.
+                    </p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h4 class="benefit-title">Secure & Reliable</h4>
+                    <p class="benefit-description">
+                        Access real-time data with confidence through our multi-layered security system and problem-locating utilities that ensure reliable performance.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <div class="cta-text">
+                    <h3 class="cta-title">Don't hesitate to contact us!</h3>
+                    <p class="cta-description">
+                        We tried to give as much information as possible in brief. However, you may have some questions or need some more information. Please feel free to reach us.
+                    </p>
+                </div>
+                <a href="contact.html" class="cta-btn">Reach Us</a>
+            </div>
+        </div>
     </section>
 
     <!--====== CALL TO ACTION PART ENDS ======-->
 
     <!--====== FOOTER PART START ======-->
 
-        <footer class="footer-area" id="footerlinks">
-          <div class="footer-widget pt-80 pb-75">
-            <div class="container">
-              <div class="row">
-                <div class="col-lg-4 col-md-6">
-                  <div class="footer-contact mt-45">
-                    <div class="footer-title">
-                      <h4 class="title">About TRKdispatch</h4>
-                    </div>
-                    <!-- footer title -->
-                    <p class="pt-30">TRKDispatch is 100% web based, inexpensive secure truck dispatch software and simple to use and will handle all of your freight and dispatch needs as well as all of the back-office and reporting functions. </p>
-                    <p class="pt-20">It is the perfect tool to help you grow and manage your business more efficiently, allowing you to concentrate on increasing your profits.</p>
-                  
-                  </div>
-                  <!-- footer contact --> 
+        <footer class="footer" id="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h4>About TRKdispatch</h4>
+                    <p>TRKDispatch is 100% web based, inexpensive secure truck dispatch software and simple to use and
+                        will handle all of your freight and dispatch needs as well as all of the back-office and
+                        reporting functions.</p>
+                    <p>It is the perfect tool to help you grow and manage your business more efficiently, allowing you
+                        to concentrate on increasing your profits.</p>
                 </div>
-                <div class="col-lg-2 col-md-6">
-                  <div class="footer-departments mt-45">
-                    <div class="footer-title">
-                      <h4 class="title">Quick Info</h4>
-                    </div>
-                    <!-- footer title -->
-                    <div class="footer-department-link pt-20">
-                      <ul>
+
+                <div class="footer-section">
+                    <h4>Quick Info</h4>
+                    <ul class="footer-links">
                         <li><a href="index.html">About Us</a></li>
                         <li><a href="features.html">Software Features</a></li>
                         <li><a href="carriers.html">Carriers</a></li>
                         <li><a href="owner_operator.html">Owner Operators</a></li>
                         <li><a href="screenshots.html">Screenshots</a></li>
                         <li><a href="get-started.html">Get Started</a></li>
-                      </ul>
-                    </div>
-                  </div>
-                  <!-- footer departments --> 
+                    </ul>
                 </div>
 
-                <div class="col-lg-3 col-md-6">
-                  <div class="footer-departments mt-45">
-                    <div class="footer-title">
-                      <h4 class="title">Important Links</h4>
-                    </div>
-                    <!-- footer title -->
-                    <div class="footer-department-link pt-20">
-                      <ul>
-                        <!-- <li><a href="http://safer.fmcsa.dot.gov/CompanySnapshot.aspx">FMCSA Company Snapshot</a></li> -->
-                        <li><a href="http://www.fmcsa.dot.gov/forms/print/r-l-forms.htm">FMCSA Registration Forms</a></li>
-                        <!-- <li><a href="http://safer.fmcsa.dot.gov/UCRQueryForm.aspx">Unified Carrier Registration (UCR)</a></li> -->
-                        <li><a href="http://www.fmcsa.dot.gov/registration-licensing/online-registration/onlineregdescription.htm">FMCSA Registration & Updates</a></li>
-                        </ul>
-                    </div>
-                  </div>
-                  <!-- footer departments --> 
+                <div class="footer-section">
+                    <h4>Important Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="http://www.fmcsa.dot.gov/forms/print/r-l-forms.htm">FMCSA Registration Forms</a>
+                        </li>
+                        <li><a
+                                href="http://www.fmcsa.dot.gov/registration-licensing/online-registration/onlineregdescription.htm">FMCSA
+                                Registration & Updates</a></li>
+                    </ul>
                 </div>
 
-
-                <div class="col-lg-3 col-md-6">
-                  <div class="footer-contact mt-45">
-                    <div class="footer-title">
-                      <h4 class="title">Contact Info</h4>
-                    </div>
-                    <!-- footer title -->
-                    <ul class="pt-10">
-                      <li>
-                        <div class="single-f-contact d-flex align-items-center">
-                          <div class="contact-icon"> <i class="lni-mobile"></i> </div>
-                          <div class="contact-content media-body">
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <div class="contact-item">
+                        <i class="fas fa-phone contact-icon"></i>
+                        <div>
                             <p>(463) 888 8803</p>
                             <p>(888) 209 6733 (Fax)</p>
-                          </div>
                         </div>
-                        <!-- single-f-contact --> 
-                      </li>
-                      <li>
-                        <div class="single-f-contact d-flex align-items-center">
-                          <div class="contact-icon"> <i class="lni-envelope"></i> </div>
-                          <div class="contact-content media-body">
-                            <p>sales@trkdispatch.com</p>
-                          </div>
-                        </div>
-                        <!-- single-f-contact --> 
-                      </li>
-                      <li>
-                        <div class="single-f-contact d-flex align-items-center">
-                          <div class="contact-icon"> <i class="lni-map"></i> </div>
-                          <div class="contact-content media-body">
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope contact-icon"></i>
+                        <p><a href="mailto:sales@trkdispatch.com"></a>sales@trkdispatch.com</a></p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt contact-icon"></i>
+                        <div>
                             <p>TECK USA Inc.<br>
-                              8230 Country Club Pl.<BR>
-                              Indianapolis, IN-46214</p>
-                          </div>
+                                8230 Country Club Pl.
+                                Indianapolis, IN-46214</p>
                         </div>
-                        <!-- single-f-contact --> 
-                      </li>
-                    </ul>
-                  </div>
-                  <!-- footer contact --> 
+                    </div>
                 </div>
-
-              </div>
-              <!-- row --> 
             </div>
-            <!-- container --> 
-          </div>
-          <!-- footer-widget -->
-          
-          <div class="copyright">
-            <div class="container">
-              <div class="row">
-                <div class="col-lg-12">
-                  <div class="copyright-content text-center">
-                    <p class="text"> &copy; 2022 Copyright by www.trkdispatch.com. All rights reserved.&nbsp;&nbsp;<a href="https://www.teckusa.com" target="new page" title="Teck USA"> <img src="assets/images/teckusa.png" alt="Teck USA" width="100px" style="padding-bottom: 5px;"></a></p>
-                  </div>
-                </div>
-              </div>
-              <!-- row --> 
-            </div>
-            <!-- container --> 
-          </div>
-          <!-- copyright --> 
-        </footer>
 
+            <div class="footer-bottom">
+                <p>© 2025 Copyright by www.trkdispatch.com. All rights reserved.
+                    <a href="https://www.teckusa.com" target="_blank">
+                        <img src="./assets/images/teckusa.png" alt="Teck USA">
+                    </a>
+                </p>
+            </div>
+        </div>
+    </footer>
     <!--====== FOOTER PART ENDS ======-->
 
     <!--====== BACK TO TOP PART START ======-->
 
-    <a href="#" class="back-to-top"><i class="flaticon-next"></i><span>Back To Top</span></a>
-
-    <!--====== BACK TO TOP PART ENDS ======-->
-
-   
-
-
-
-
-
-    <!--====== jquery js ======-->
-    <script src="assets/js/vendor/modernizr-3.6.0.min.js"></script>
-    <script src="assets/js/vendor/jquery-1.12.4.min.js"></script>
-
-    <!--====== Bootstrap js ======-->
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/popper.min.js"></script>
-
-    <!--====== Slick js ======-->
-    <script src="assets/js/slick.min.js"></script>
-
-    <!--====== Magnific Popup js ======-->
-    <script src="assets/js/jquery.magnific-popup.min.js"></script>
-
-    <!--====== WOW js ======-->
-    <script src="assets/js/wow.min.js"></script>
-
-    <!--====== Gijgo js ======-->
-    <script src="assets/js/gijgo.min.js"></script>
-
-    <!--====== Nice Select js ======-->
-    <script src="assets/js/jquery.nice-select.min.js"></script>
-    
-    <!--====== Counter Up js ======-->
-    <script src="assets/js/waypoints.min.js"></script>
-    <script src="assets/js/jquery.counterup.min.js"></script>
-
-    <!--====== Time Picker js ======-->
-    <script src="assets/js/jquery.timepicker.min.js"></script>
-
-     <!--====== Validator js ======-->
-    <script src="assets/js/validator.min.js"></script>
-
-    <!--====== Ajax Contact js ======-->
-    <script src="assets/js/ajax-contact.js"></script>
-
-    <!--====== Main js ======-->
-    <script src="assets/js/main.js"></script>
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </a>
+    <script src="./js/index.js"></script>
 
 </body>
 
