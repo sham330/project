@@ -7,50 +7,567 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+ 
 
     <!--====== Title ======-->
    <title>TRKDispatch - Contact Us</title>
 
     <!--====== Favicon Icon ======-->
     <link rel="shortcut icon" href="assets/images/favicon.png" type="image/png">
+    <link rel="stylesheet" href="./css/index.css">
 
-    <!--====== Bootstrap css ======-->
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+<style>
+     /* Hero Section */
+        .hero-section {
+            margin-top: 100px;
+            background: url('assets/images/contact.jpg') center/cover no-repeat;
+            padding: 120px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
 
-    <!--====== Fontawesome css ======-->
-    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 1;
+        }
 
-    <!--====== Line Icons css ======-->
-    <link rel="stylesheet" href="assets/css/LineIcons.css">
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: var(--white);
+        }
 
-    <!--====== Flaticon css ======-->
-    <link rel="stylesheet" href="assets/css/flaticon.css">
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--white);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
 
-    <!--====== Magnific Popup css ======-->
-    <link rel="stylesheet" href="assets/css/magnific-popup.css">
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--white);
+            max-width: 600px;
+            margin: 0 auto;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        }
 
-    <!--====== Gijgo css ======-->
-    <link rel="stylesheet" href="assets/css/gijgo.min.css">
+        /* Breadcrumb Section */
+        .breadcrumb-section {
+            background: var(--white);
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
 
-    <!--====== Nice Select css ======-->
-    <link rel="stylesheet" href="assets/css/nice-select.css">
+        .breadcrumb {
+            display: flex;
+            justify-content: flex-end;
+            list-style: none;
+            margin: 0;
+        }
 
-    <!--====== Time Picker css ======-->
-    <link rel="stylesheet" href="assets/css/jquery.timepicker.min.css">
+        .breadcrumb li {
+            display: flex;
+            align-items: center;
+            font-size: 0.875rem;
+        }
 
-    <!--====== Animate css ======-->
-    <link rel="stylesheet" href="assets/css/animate.css">
+        .breadcrumb li:not(:last-child)::after {
+            content: '/';
+            margin: 0 0.5rem;
+            color: var(--text-light);
+        }
 
-    <!--====== Slick css ======-->
-    <link rel="stylesheet" href="assets/css/slick.css">
+        .breadcrumb a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
 
-    <!--====== Default css ======-->
-    <link rel="stylesheet" href="assets/css/default.css">
+        .breadcrumb a:hover {
+            color: var(--primary-color);
+        }
 
-    <!--====== Style css ======-->
-    <link rel="stylesheet" href="assets/css/style.css">
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
+        /* Main Content */
+        .main-content {
+            background: var(--white);
+            padding: 80px 0;
+        }
 
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+
+        .brand-highlight {
+            color: var(--primary-color);
+            font-weight: 800;
+        }
+
+        .intro-text {
+            font-size: 1.125rem;
+            color: var(--text-light);
+            line-height: 1.8;
+            max-width: 900px;
+            margin: 0 auto 2rem;
+            text-align: center;
+        }
+
+        /* Contact Grid */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        /* Contact Form */
+        .contact-form-section {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+            position: relative;
+        }
+
+        .contact-form-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            border-radius: 12px 12px 0 0;
+        }
+
+        .form-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            position: relative;
+        }
+
+        .form-group.full-width {
+            grid-column: span 2;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 1rem 1rem 1rem 3rem;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s ease;
+            background: var(--white);
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(245, 124, 31, 0.1);
+        }
+
+        .form-textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .form-icon {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-light);
+            font-size: 1rem;
+            z-index: 2;
+        }
+
+        .form-textarea + .form-icon {
+            top: 1.5rem;
+            transform: none;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            color: var(--white);
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Contact Info Section */
+        .contact-info-section {
+            background: var(--bg-gray);
+            border-radius: 12px;
+            padding: 2.5rem;
+            height: fit-content;
+        }
+
+        .info-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 2rem;
+            line-height: 1.4;
+        }
+
+        .contact-info-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .contact-info-item {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--shadow);
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-info-item:hover {
+            transform: translateY(-3px);
+        }
+
+        .contact-info-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .info-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .info-icon i {
+            color: var(--white);
+            font-size: 1.2rem;
+        }
+
+        .info-content {
+            flex: 1;
+        }
+
+        .info-content p {
+            color: var(--text-light);
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .info-content p strong {
+            color: var(--text-dark);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Map Section */
+        .map-section {
+            background: var(--bg-gray);
+            padding: 80px 0;
+        }
+
+        .map-container {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+        }
+
+        .map-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .map-iframe {
+            width: 100%;
+            height: 400px;
+            border: none;
+            border-radius: 8px;
+        }
+
+        /* Call to Action */
+        .cta-section {
+            background: linear-gradient(135deg, var(--text-dark) 0%, var(--secondary-color) 100%);
+            padding: 60px 0;
+            color: var(--white);
+        }
+
+        .cta-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+
+        .cta-text {
+            flex: 1;
+        }
+
+        .cta-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+
+        .cta-description {
+            font-size: 1rem;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        .cta-button {
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 0.75rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow);
+        }
+
+        .cta-button:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero-section {
+                padding: 100px 0 60px;
+            }
+
+            .hero-title {
+                font-size: 3rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.125rem;
+            }
+
+            .section-title {
+                font-size: 2.25rem;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-section {
+                margin-top: 80px;
+                padding: 80px 0 50px;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+                max-width: 90%;
+            }
+
+            .main-content {
+                padding: 60px 0;
+            }
+
+            .container {
+                padding: 0 15px;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .intro-text {
+                font-size: 1rem;
+                max-width: 100%;
+            }
+
+            .contact-form-section,
+            .contact-info-section {
+                padding: 2rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .form-group.full-width {
+                grid-column: span 1;
+            }
+
+            .map-section {
+                padding: 60px 0;
+            }
+
+            .cta-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 1.5rem;
+            }
+
+            .cta-title {
+                font-size: 1.6rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-section {
+                margin-top: 70px;
+                padding: 60px 0 40px;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 0.9rem;
+                max-width: 95%;
+            }
+
+            .main-content {
+                padding: 40px 0;
+            }
+
+            .container {
+                padding: 0 10px;
+            }
+
+            .section-title {
+                font-size: 1.75rem;
+            }
+
+            .intro-text {
+                font-size: 0.9rem;
+            }
+
+            .contact-form-section,
+            .contact-info-section {
+                padding: 1.5rem;
+            }
+
+            .form-input {
+                padding: 0.875rem 0.875rem 0.875rem 2.5rem;
+            }
+
+            .form-icon {
+                left: 0.875rem;
+                font-size: 0.9rem;
+            }
+
+            .submit-btn {
+                padding: 0.875rem 2rem;
+                font-size: 0.9rem;
+            }
+
+            .contact-info-item {
+                padding: 1.25rem;
+            }
+
+            .info-icon {
+                width: 45px;
+                height: 45px;
+            }
+
+            .map-section {
+                padding: 50px 0;
+            }
+
+            .map-container {
+                padding: 1.5rem;
+            }
+
+            .map-iframe {
+                height: 300px;
+            }
+
+            .cta-section {
+                padding: 40px 0;
+            }
+
+            .cta-title {
+                font-size: 1.4rem;
+            }
+
+            .cta-description {
+                font-size: 0.9rem;
+            }
+
+            .cta-button {
+                padding: 0.65rem 1.25rem;
+                font-size: 0.9rem;
+            }
+        }
+</style>
 </head>
 
 <body>
@@ -78,374 +595,332 @@
 
     <!--====== HEADER PART START ======-->
 
-    <header class="header-area">
+    <!-- Header -->
+    <header class="header">
         <div class="header-top pb-10">
             <div class="container">
-              <div class="row">
-                <div class="col-lg-12">
-                  <div class="header-top-content d-md-flex justify-content-between align-items-center">
-                    <div class="header-info pt-10 d-none d-md-block">
-                      <ul>
-                        <li>www.trkdispatch.com</li>
-                      </ul>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="header-top-content d-md-flex justify-content-between align-items-center">
+                            <div class="header-info pt-10 d-none d-md-block">
+                                <ul>
+                                    <li>www.trkdispatch.com</li>
+                                </ul>
+                            </div>
+                            <!-- header info -->
+                            <div class="header-social text-center text-md-right pt-10">
+                                <ul>
+                                    <li><a href="sign-up.html">Sign Up</a></li>
+                                    <li><a href="log_in.html">Log In</a></li>
+                                    <li><a style="color:#f57c1f;"   href="contact.html">Contact Us</a></li>
+                                    <li><a href="#footer">Links</a></li>
+                                </ul>
+                            </div>
+                            <!-- header social -->
+                        </div>
                     </div>
-                    <!-- header info -->
-                    
-                    <div class="header-social text-center text-md-right pt-10">
-                      <ul>
-                        <li><a href="sign-up.html">Sign Up</a></li>
-                        <li><a href="log_in.html">Log In</a></li>
-                        <li><a href="contact.html">Contact Us</a></li>
-                        <li><a href="#footerlinks">Links</a></li>
-                      </ul>
-                    </div>
-                    <!-- header social --> 
-                  </div>
                 </div>
-              </div>
-              <!-- row --> 
+                <!-- row -->
             </div>
-            <!-- container --> 
-          </div>
-          <!-- header-top -->
-
-          <div class="navigation navigation-two">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <nav class="navbar navbar-expand-lg"> <a class="navbar-brand" href="index.html"> <img src="assets/images/teckusa.png" alt="Logo" width="170px"><br><p class="tagline">Easy way of dispatch <span class="tagline_trk">TRK DISPATCH</span></p></a> <!-- Logo -->
-            
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="toggler-icon"></span> <span class="toggler-icon"></span> <span class="toggler-icon"></span> </button>
-            <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
-              <ul class="navbar-nav ml-auto">
-                <li class="nav-item"> <a href="features.html">Features</a> </li>
-                <li class="nav-item"> <a href="carriers.html">Carriers</a> </li>
-                <li class="nav-item"> <a href="owner_operator.html">Owner Operators</a> </li>
-                <li class="nav-item"> <a href="screenshots.html">Screenshots</a> </li>
-                <li class="nav-item"> <a href="get-started.html">Get Started</a> </li>
-              </ul>
-              <!-- navbar-nav --> 
-            </div>
-            <!-- navbar-collapse -->
-            
-            <div class="navbar-btn d-none d-sm-block"> <a class="main-btn" href="tel:4638888803"><img src="assets/images/call.png"> Call Us (463) 888 8803</a>  </div>
-          </nav>
-          <!-- navbar --> 
+            <!-- container -->
         </div>
-      </div>
-      <!-- row --> 
-    </div>
-    <!-- container --> 
-  </div>
-  <!-- navigation --> 
+        <!-- header-top -->
+
+        <nav class="navbar">
+            <div class="container">
+                <div class="navbar-content">
+                    <a href="index.html" class="logo">
+                        <img src="assets/images/teckusa.png" alt="TRK Dispatch Logo">
+                        <div class="logo-text">
+                            <div class="logo-title">TRK DISPATCH</div>
+                            <div class="logo-subtitle">Professional Dispatch Software</div>
+                        </div>
+                    </a>
+
+                    <ul class="nav-menu">
+                        <li><a href="features.html">Features</a></li>
+                        <li><a href="carriers.html">Carriers</a></li>
+                        <li><a href="owner_operator.html">Owner Operators</a></li>
+                        <li><a href="screenshots.html">Screenshots</a></li>
+                        <li><a href="get-started.html">Get Started</a></li>
+                    </ul>
+
+                    <div class="nav-actions">
+                        <a href="tel:4638888803" class="cta-button">
+                            <i class="fas fa-phone"></i>
+                            (463) 888-8803
+                        </a>
+                    </div>
+
+                    <!-- Mobile Menu Toggle -->
+                    <button class="menu-toggle" id="menuToggle">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <div class="mobile-nav-content">
+                <ul class="mobile-nav-links">
+                    <li><a href="features.html">Features</a></li>
+                    <li><a href="carriers.html">Carriers</a></li>
+                    <li><a href="owner_operator.html">Owner Operators</a></li>
+                    <li><a href="screenshots.html">Screenshots</a></li>
+                    <li><a href="get-started.html">Get Started</a></li>
+                    <li><a href="sign-up.html">Sign Up</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+
+                <div class="mobile-nav-actions">
+                    <a href="log_in.html" class="login-btn">Login</a>
+                    <a href="tel:4638888803" class="cta-button">
+                        <i class="fas fa-phone"></i>
+                        Call (463) 888-8803
+                    </a>
+                </div>
+
+                <div class="mobile-contact-info">
+                    <h4>Contact Information</h4>
+                    <div class="mobile-contact-item">
+                        <i class="fas fa-globe"></i>
+                        <span>www.trkdispatch.com</span>
+                    </div>
+                    <div class="mobile-contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>info@trkdispatch.com</span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </header>
+
 
     <!--====== HEADER PART ENDS ======-->
     
     <!--====== PAGE BANNER PART START ======-->
 
-    <section class="page-banner bg_cover" style="background-image: url(assets/images/contact.jpg)" data-overlay="5">
+    <section class="hero-section">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="page-content text-center">
-                        <h2 class="page-title">Contact Us</h2>
-                    </div> <!-- page content -->
-                </div>
-            </div> <!-- row -->
-        </div> <!-- container -->
+            <div class="hero-content">
+                <h1 class="hero-title">Contact Us</h1>
+                <p class="hero-subtitle">Get in touch with our team for any inquiries or support</p>
+            </div>
+        </div>
     </section>
 
-     <section style="background-color: #ececec;">
-         <div class="container-fluid">
-             <div class="row text-end">
-                 <div class="col-xl-12">
-                     <div class="breadcrumb" align="right">
-                         <ul>
-                          <li><a href="index.html">Home</a></li>
-                          <li><a href="#">Contact Us</a></li>
-                        </ul>
-                     </div>
-                 </div>
-             </div>
-         </div>
+    <!-- Breadcrumb -->
+    <section class="breadcrumb-section">
+        <div class="container">
+            <ul class="breadcrumb">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </div>
     </section>
 
-    <!--====== PAGE BANNER PART ENDS ======-->
-    
-    <!--====== CONTACT PART START ======-->
-
-    <section class="contact-page pt-80 pb-130">
+    <!-- Main Content -->
+    <section class="main-content">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-8">
-                    <div class="contact-form pt-20">
-                        <form id="contact-form" action="assets/contact.php" method="post" data-toggle="validator">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="single-contact-form form-group">
-                                        <input type="text" name="name" placeholder="Name" data-error="Name is required." required="required">
-                                        <div class="help-block with-errors"></div>
-                                        <i class="lni-user"></i>
-                                    </div> <!-- single-contact-form -->
-                                </div>
-                                
-                                <!-- <div class="col-md-6">
-                                    <div class="single-contact-form form-group">
-                                        <input type="text" name="subject" placeholder="Subject"  data-error="Subject is required." required="required">
-                                        <div class="help-block with-errors"></div>
-                                        <i class="lni-pencil"></i>
-                                    </div> 
-                                </div> -->
+            <div class="section-header">
+                <h2 class="section-title">
+                    Get in Touch with <span class="brand-highlight">TECK USA Inc.</span>
+                </h2>
+                
+                <p class="intro-text">
+                    Don't hesitate to contact us for any kind of information about our truck dispatch software solutions. We're here to help you streamline your operations and grow your business.
+                </p>
+            </div>
 
-                                <div class="col-md-6">
-                                    <div class="single-contact-form form-group">
-                                        <input type="text" name="phone" placeholder="Phone Number"  data-error="Phone is required." required="required">
-                                        <div class="help-block with-errors"></div>
-                                        <i class="lni-phone-handset"></i>
-                                    </div> <!-- single-contact-form -->
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="single-contact-form form-group">
-                                        <input type="email" name="email" placeholder="Email" data-error="Valid email is required." required="required">
-                                        <div class="help-block with-errors"></div>
-                                        <i class="lni-envelope"></i>
-                                    </div> <!-- single-contact-form -->
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="single-contact-form form-group">
-                                        <textarea name="message" placeholder="Your Comment" data-error="Please,leave us a message." required="required"></textarea>
-                                        <div class="help-block with-errors"></div>
-                                        <i class="lni-pencil-alt"></i>
-                                    </div> <!-- single-contact-form -->
-                                </div>
-                                <p class="form-message"></p>
-                                <div class="col-md-12">
-                                    <div class="single-contact-form form-group">
-                                        <button type="submit" class="main-btn">Submit</button>
-                                    </div> <!-- single-contact-form -->
-                                </div>
-                            </div> <!-- row -->
-                        </form>
-                    </div> <!-- contact-form -->
-                </div>
-                <div class="col-lg-4">
-                    <div class="contact-info mt-50">
-                        <h4 class="info-title">Don’t Hesitate to contact with us for any kind of information</h4>
-                        <ul>
-                            <li>
-                                <div class="single-info">
-                                    <div class="info-icon">
-                                        <i class="lni-money-location"></i>
-                                    </div>
-                                    <div class="info-content">
-                                        <p class="text">TECK USA Inc.<BR>
-                                            8230 Country Club Pl.<BR>
-                                            Indianapolis, IN-46214</p>
-
-                                    </div>
-                                </div> <!-- single-info -->
-                            </li>
-                            <li>
-                                <div class="single-info">
-                                    <div class="info-icon">
-                                        <i class="lni-phone"></i>
-                                    </div>
-                                    <div class="info-content">
-                                        <p class="text">(463) 888 8803</p>
-                                        <p class="text">(888) 209 6733 (Fax)</p>
-                                    </div>
-                                </div> <!-- single-info -->
-                            </li>
-                            <li>
-                                <div class="single-info">
-                                    <div class="info-icon">
-                                        <i class="lni-envelope"></i>
-                                    </div>
-                                    <div class="info-content">
-                                        <p class="text">sales@trkdispatch.com</p>
-                                    </div>
-                                </div> <!-- single-info -->
-                            </li>
-                        </ul>
-                        <!-- <ul class="social">
-                            <li><a href="#"><i class="lni-facebook-filled"></i></a></li>
-                            <li><a href="#"><i class="lni-twitter-original"></i></a></li>
-                            <li><a href="#"><i class="lni-behance-original"></i></a></li>
-                            <li><a href="#"><i class="lni-youtube"></i></a></li>
-                        </ul> -->
-                    </div> <!-- contact-info -->
-                </div>
-            </div> <!-- row -->
-            <div class="row">
-                <div class="col-lg-12">
-                     <div class="contact-map mt-130">
-                        <div class="gmap_canvas"> 
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3068.480373368373!2d-86.17450068462489!3d39.72885907945101!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x886b5b8191eadbc5%3A0xbee7d9a8d620f7!2sTeck%20USA%20Inc!5e0!3m2!1sen!2sin!4v1655784943133!5m2!1sen!2sin" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
-                                                   
-                            <!-- <iframe id="gmap_canvas" src="https://maps.google.com/maps?q=Mission%20District%2C%20San%20Francisco%2C%20CA%2C%20USA&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe> -->
+            <div class="contact-grid">
+                <!-- Contact Form -->
+                <div class="contact-form-section">
+                    <h3 class="form-title">Send us a Message</h3>
+                    <form id="contact-form" action="assets/contact.php" method="post">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <input type="text" name="name" placeholder="Your Name" class="form-input" required>
+                                <i class="fas fa-user form-icon"></i>
+                            </div>
+                            <div class="form-group">
+                                <input type="tel" name="phone" placeholder="Phone Number" class="form-input" required>
+                                <i class="fas fa-phone form-icon"></i>
+                            </div>
                         </div>
-                    </div> <!-- contact map -->
+                        
+                        <div class="form-group full-width">
+                            <input type="email" name="email" placeholder="Email Address" class="form-input" required>
+                            <i class="fas fa-envelope form-icon"></i>
+                        </div>
+                        
+                        <div class="form-group full-width">
+                            <textarea name="message" placeholder="Your Message" class="form-input form-textarea" required></textarea>
+                            <i class="fas fa-comment form-icon"></i>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-paper-plane" style="margin-right: 0.5rem;"></i>
+                            Send Message
+                        </button>
+                    </form>
                 </div>
-            </div> <!-- row -->
-        </div> <!-- container -->
+
+                <!-- Contact Information -->
+                <div class="contact-info-section">
+                    <h4 class="info-title">Don't Hesitate to contact with us for any kind of information</h4>
+                    
+                    <ul class="contact-info-list">
+                        <li class="contact-info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="info-content">
+                                <p><strong>Our Location</strong></p>
+                                <p>TECK USA Inc.<br>
+                                8230 Country Club Pl.<br>
+                                Indianapolis, IN-46214</p>
+                            </div>
+                        </li>
+                        
+                        <li class="contact-info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="info-content">
+                                <p><strong>Phone & Fax</strong></p>
+                                <p>(463) 888 8803<br>
+                                (888) 209 6733 (Fax)</p>
+                            </div>
+                        </li>
+                        
+                        <li class="contact-info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="info-content">
+                                <p><strong>Email Address</strong></p>
+                                <p>sales@trkdispatch.com</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <!--====== CONTACT PART ENDS ======-->
-
-    <!--====== CALL TO ACTION PART START ======-->
-
-    <section class="call-action-area">
+    <!-- Map Section -->
+    <section class="map-section">
         <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-10">
-                   <div class="call-action d-lg-flex justify-content-between align-items-center">
-                        <div class="action-content">
-                            <h3 class="action-title">Don’t hasitate to contact us!</h3>
-                            <p class="text">We tried to give as much information as possible in brief. However, you may have some questions or need some more information. Please feel free to reach us. </p>
-                        </div> <!-- action content -->
-                        <div class="action-btn">
-                            <a class="main-btn" href="contact.html">Reach Us</a>
-                        </div> <!-- action btn -->
-                    </div> <!-- call action -->
-                </div>
-            </div> <!-- row -->
-        </div> <!-- container -->
+            <div class="map-container">
+                <h3 class="map-title">Find Us on the Map</h3>
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3068.480373368373!2d-86.17450068462489!3d39.72885907945101!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x886b5b8191eadbc5%3A0xbee7d9a8d620f7!2sTeck%20USA%20Inc!5e0!3m2!1sen!2sin!4v1655784943133!5m2!1sen!2sin" 
+                    class="map-iframe"
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
     </section>
 
+    <!-- Call to Action -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <div class="cta-text">
+                    <h3 class="cta-title">Ready to Get Started?</h3>
+                    <p class="cta-description">
+                        We tried to give as much information as possible in brief. However, you may have some questions or need some more information. Please feel free to reach us.
+                    </p>
+                </div>
+                <a href="#contact-form" class="cta-button">Contact Us Now</a>
+            </div>
+        </div>
+    </section>
     <!--====== CALL TO ACTION PART ENDS ======-->
 
     <!--====== FOOTER PART START ======-->
-
-     <footer class="footer-area" id="footerlinks">
-          <div class="footer-widget pt-80 pb-75">
-            <div class="container">
-              <div class="row">
-                <div class="col-lg-4 col-md-6">
-                  <div class="footer-contact mt-45">
-                    <div class="footer-title">
-                      <h4 class="title">About TRKdispatch</h4>
-                    </div>
-                    <!-- footer title -->
-                    <p class="pt-30">TRKDispatch is 100% web based, inexpensive secure truck dispatch software and simple to use and will handle all of your freight and dispatch needs as well as all of the back-office and reporting functions. </p>
-                    <p class="pt-20">It is the perfect tool to help you grow and manage your business more efficiently, allowing you to concentrate on increasing your profits.</p>
-                  
-                  </div>
-                  <!-- footer contact --> 
+  <!-- Footer -->
+    <footer class="footer" id="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h4>About TRKdispatch</h4>
+                    <p>TRKDispatch is 100% web based, inexpensive secure truck dispatch software and simple to use and
+                        will handle all of your freight and dispatch needs as well as all of the back-office and
+                        reporting functions.</p>
+                    <p>It is the perfect tool to help you grow and manage your business more efficiently, allowing you
+                        to concentrate on increasing your profits.</p>
                 </div>
-                <div class="col-lg-2 col-md-6">
-                  <div class="footer-departments mt-45">
-                    <div class="footer-title">
-                      <h4 class="title">Quick Info</h4>
-                    </div>
-                    <!-- footer title -->
-                    <div class="footer-department-link pt-20">
-                      <ul>
+
+                <div class="footer-section">
+                    <h4>Quick Info</h4>
+                    <ul class="footer-links">
                         <li><a href="index.html">About Us</a></li>
                         <li><a href="features.html">Software Features</a></li>
                         <li><a href="carriers.html">Carriers</a></li>
                         <li><a href="owner_operator.html">Owner Operators</a></li>
                         <li><a href="screenshots.html">Screenshots</a></li>
                         <li><a href="get-started.html">Get Started</a></li>
-                      </ul>
-                    </div>
-                  </div>
-                  <!-- footer departments --> 
-                </div>
-
-                <div class="col-lg-3 col-md-6">
-                  <div class="footer-departments mt-45">
-                    <div class="footer-title">
-                      <h4 class="title">Important Links</h4>
-                    </div>
-                    <!-- footer title -->
-                    <div class="footer-department-link pt-20">
-                      <ul>
-                        <!-- <li><a href="http://safer.fmcsa.dot.gov/CompanySnapshot.aspx">FMCSA Company Snapshot</a></li> -->
-                        <li><a href="http://www.fmcsa.dot.gov/forms/print/r-l-forms.htm">FMCSA Registration Forms</a></li>
-                        <!-- <li><a href="http://safer.fmcsa.dot.gov/UCRQueryForm.aspx">Unified Carrier Registration (UCR)</a></li> -->
-                        <li><a href="http://www.fmcsa.dot.gov/registration-licensing/online-registration/onlineregdescription.htm">FMCSA Registration & Updates</a></li>
-                        </ul>
-                    </div>
-                  </div>
-                  <!-- footer departments --> 
-                </div>
-
-
-                <div class="col-lg-3 col-md-6">
-                  <div class="footer-contact mt-45">
-                    <div class="footer-title">
-                      <h4 class="title">Contact Info</h4>
-                    </div>
-                    <!-- footer title -->
-                    <ul class="pt-10">
-                      <li>
-                        <div class="single-f-contact d-flex align-items-center">
-                          <div class="contact-icon"> <i class="lni-mobile"></i> </div>
-                          <div class="contact-content media-body">
-                            <p>463 888 8803 </p>
-                            <p>888 209 6733 (Fax)</p>
-                          </div>
-                        </div>
-                        <!-- single-f-contact --> 
-                      </li>
-                      <li>
-                        <div class="single-f-contact d-flex align-items-center">
-                          <div class="contact-icon"> <i class="lni-envelope"></i> </div>
-                          <div class="contact-content media-body">
-                            <p>sales@trkdispatch.com</p>
-                          </div>
-                        </div>
-                        <!-- single-f-contact --> 
-                      </li>
-                      <li>
-                        <div class="single-f-contact d-flex align-items-center">
-                          <div class="contact-icon"> <i class="lni-map"></i> </div>
-                          <div class="contact-content media-body">
-                            <p>TECK USA Inc.<br>
-                              715 W Southern Ave
-                              Idianapolis, IN-46225</p>
-                          </div>
-                        </div>
-                        <!-- single-f-contact --> 
-                      </li>
                     </ul>
-                  </div>
-                  <!-- footer contact --> 
                 </div>
 
-              </div>
-              <!-- row --> 
-            </div>
-            <!-- container --> 
-          </div>
-          <!-- footer-widget -->
-          
-          <div class="copyright">
-            <div class="container">
-              <div class="row">
-                <div class="col-lg-12">
-                  <div class="copyright-content text-center">
-                    <p class="text"> &copy; 2022 Copyright by www.trkdispatch.com. All rights reserved.&nbsp;&nbsp;<a href="https://www.teckusa.com" target="new page" title="Teck USA"> <img src="assets/images/teckusa.png" alt="Teck USA" width="100px" style="padding-bottom: 5px;"></a></p>
-                  </div>
+                <div class="footer-section">
+                    <h4>Important Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="http://www.fmcsa.dot.gov/forms/print/r-l-forms.htm">FMCSA Registration Forms</a>
+                        </li>
+                        <li><a
+                                href="http://www.fmcsa.dot.gov/registration-licensing/online-registration/onlineregdescription.htm">FMCSA
+                                Registration & Updates</a></li>
+                    </ul>
                 </div>
-              </div>
-              <!-- row --> 
-            </div>
-            <!-- container --> 
-          </div>
-          <!-- copyright --> 
-        </footer>
 
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <div class="contact-item">
+                        <i class="fas fa-phone contact-icon"></i>
+                        <div>
+                            <p>(463) 888 8803</p>
+                            <p>(888) 209 6733 (Fax)</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope contact-icon"></i>
+                        <p><a href="mailto:sales@trkdispatch.com"></a>sales@trkdispatch.com</a></p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt contact-icon"></i>
+                        <div>
+                            <p>TECK USA Inc.<br>
+                                8230 Country Club Pl.
+                                Indianapolis, IN-46214</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2025 Copyright by www.trkdispatch.com. All rights reserved.
+                    <a href="https://www.teckusa.com" target="_blank">
+                        <img src="./assets/images/teckusa.png" alt="Teck USA">
+                    </a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </a>
     <!--====== FOOTER PART ENDS ======-->
 
-    <!--====== BACK TO TOP PART START ======-->
-
-    <a href="#" class="back-to-top"><i class="flaticon-next"></i><span>Back To Top</span></a>
-
-    <!--====== BACK TO TOP PART ENDS ======-->
-
-    <!--====== PART START ======-->
+  
 
 
 
@@ -457,44 +932,10 @@
 
 
 
-    <!--====== jquery js ======-->
-    <script src="assets/js/vendor/modernizr-3.6.0.min.js"></script>
-    <script src="assets/js/vendor/jquery-1.12.4.min.js"></script>
-
-    <!--====== Bootstrap js ======-->
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/popper.min.js"></script>
-
-    <!--====== Slick js ======-->
-    <script src="assets/js/slick.min.js"></script>
-
-    <!--====== Magnific Popup js ======-->
-    <script src="assets/js/jquery.magnific-popup.min.js"></script>
-
-    <!--====== WOW js ======-->
-    <script src="assets/js/wow.min.js"></script>
-
-    <!--====== Gijgo js ======-->
-    <script src="assets/js/gijgo.min.js"></script>
-
-    <!--====== Nice Select js ======-->
-    <script src="assets/js/jquery.nice-select.min.js"></script>
     
-    <!--====== Counter Up js ======-->
-    <script src="assets/js/waypoints.min.js"></script>
-    <script src="assets/js/jquery.counterup.min.js"></script>
-
-    <!--====== Time Picker js ======-->
-    <script src="assets/js/jquery.timepicker.min.js"></script>
-
-     <!--====== Validator js ======-->
-    <script src="assets/js/validator.min.js"></script>
-
-    <!--====== Ajax Contact js ======-->
-    <script src="assets/js/ajax-contact.js"></script>
 
     <!--====== Main js ======-->
-    <script src="assets/js/main.js"></script>
+    <script src="./js/index.js"></script>
 
 </body>
 
