@@ -22,6 +22,7 @@ if (location.protocol !== 'https:') {
  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
  
+ <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 
     <!--====== Title ======-->
    <title>TRKDispatch-Log in</title>
@@ -546,7 +547,10 @@ if (location.protocol !== 'https:') {
                         <input type="password" id="password" name="password" placeholder="Enter your password" class="form-input" required>
                         <i class="fas fa-lock form-icon"></i>
                     </div>
-
+<!-- ✅ Cloudflare Turnstile widget -->
+    <div class="form-group full-width">
+        <div class="cf-turnstile" data-sitekey="0x4AAAAAABiCJFoi0vQu8RQc"></div>
+    </div>
                     <div class="button-group">
                         <button type="submit" class="btn btn-primary">
                             <i class="fas fa-sign-in-alt"></i>
