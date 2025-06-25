@@ -1,1047 +1,695 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-
-    <title>TRK Dispatch - Professional Truck Dispatch Software</title>
-   <meta name="description" content="TRK Dispatch offers professional web-based truck dispatch software for carriers and owner-operators. Streamline logistics, enhance efficiency, and boost revenue with our scalable solution.">
-    <meta name="keywords" content="truck dispatch software, trucking software, logistics software, fleet management, owner operator software, carrier software, TRK Dispatch">
-    <meta name="robots" content="index, follow">
-    <meta name="author" content="TECK USA Inc.">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brownsburg Truck Center - Expert Volvo Truck Service</title>
     
-    <!-- Open Graph Tags for Social Media -->
-    <meta property="og:title" content="TRK Dispatch - Professional Truck Dispatch Software">
-    <meta property="og:description" content="Streamline your logistics with TRK Dispatch, a web-based truck dispatch software for carriers and owner-operators.">
-    <meta property="og:image" content="https://www.trkdispatch.com/assets/images/truck2.jpg">
-    <meta property="og:url" content="https://www.trkdispatch.com">
-    <meta property="og:type" content="website">
+    <!-- AOS Animation Library -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
     
-    <!-- Twitter Card Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="TRK Dispatch - Professional Truck Dispatch Software">
-    <meta name="twitter:description" content="Streamline your logistics with TRK Dispatch, a web-based truck dispatch software for carriers and owner-operators.">
-    <meta name="twitter:image" content="https://www.trkdispatch.com/assets/images/truck2.jpg">
-
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/png">
-        <link rel="stylesheet" href="./css/index.css">
-
-
-   
-       <!-- Structured Data (JSON-LD) -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        "name": "TRK Dispatch",
-        "operatingSystem": "Web-based",
-        "applicationCategory": "BusinessApplication",
-        "description": "Professional web-based truck dispatch software for carriers and owner-operators to streamline logistics and fleet management.",
-        "url": "https://www.trkdispatch.com",
-        "publisher": {
-            "@type": "Organization",
-            "name": "TECK USA Inc.",
-            "url": "https://www.teckusa.com"
-        },
-        "contactPoint": {
-            "@type": "ContactPoint",
-            "telephone": "+1-463-888-8803",
-            "contactType": "Customer Service",
-            "email": "sales@trkdispatch.com"
-        },
-        "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "8230 Country Club Pl.",
-            "addressLocality": "Indianapolis",
-            "addressRegion": "IN",
-            "postalCode": "46214",
-            "addressCountry": "US"
-        }
-    }
-</script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="assets/logo.png" type="image/png">
 
     <style>
-       
-        .hero {
-            position: relative;
-            overflow: hidden;
-            height: 100vh;
-            min-height: 600px;
-            margin-top: 80px;
+        :root {
+            --primary-color: #000000;
+            --secondary-color: #f5f5f5;
+            --accent-color: #f57c1f;
+            --text-dark: #2d3748;
+            --text-light: #718096;
+            --white: #ffffff;
+            --gradient: linear-gradient(135deg, #000000 0%, #f57c1f 100%);
         }
 
-        .hero-slider {
-            position: relative;
-            height: 100%;
-            width: 100%;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        .hero-slide {
-            position: absolute;
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            position: fixed;
             top: 0;
-            left: 0;
             width: 100%;
-            height: 100%;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            /* Optional: creates parallax effect */
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            background: var(--white);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--white);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .navbar.scrolled .logo {
+            color: var(--primary-color);
+        }
+
+        .logo i {
+            font-size: 2rem;
+            color: var(--accent-color);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .navbar.scrolled .nav-link {
+            color: var(--text-dark);
+        }
+
+        .nav-link:hover {
+            color: var(--accent-color);
+            transform: translateY(-2px);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 50%;
+            background: var(--accent-color);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .cta-button {
+            background: var(--accent-color);
+            color: var(--white);
+            padding: 0.7rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(30, 64, 175, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(30, 64, 175, 0.4);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .navbar.scrolled .mobile-menu-toggle {
+            color: var(--primary-color);
+        }
+
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 300px;
+            height: 100vh;
+            background: var(--white);
+            padding: 2rem;
+            transition: all 0.3s ease;
+            box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-menu .close-btn {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-dark);
+        }
+
+        .mobile-nav-links {
+            margin-top: 3rem;
+            list-style: none;
+        }
+
+        .mobile-nav-links li {
+            margin-bottom: 1.5rem;
+        }
+
+        .mobile-nav-links a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
-            opacity: 0;
-            transform: translateX(100%);
-            transition: all 0.8s ease-in-out;
+            overflow: hidden;
         }
 
-        /* Dark overlay for better text readability */
-        .hero-slide::before {
-            content: '';
+        .hero-video {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(45deg,
-                    rgba(0, 0, 0, 0.5),
-                    rgba(245, 124, 31, 0.3));
-            z-index: 1;
+            object-fit: cover;
+            z-index: -2;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: -1;
         }
 
         .hero-content {
-            position: relative;
-            z-index: 2;
             text-align: center;
+            color: var(--white);
             max-width: 800px;
-            margin: 0 auto;
-            padding: 0 20px;
-            color: white;
-            animation: slideInUp 0.8s ease-out;
-        }
-
-        .hero-slide.active {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .hero-slide.prev {
-            transform: translateX(-100%);
-        }
-
-        @keyframes slideInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            padding: 0 2rem;
+            z-index: 1;
         }
 
         .hero-subtitle {
-            font-size: 18px;
-            margin-bottom: 20px;
-            opacity: 0.9;
-            font-weight: 500;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+            font-weight: 600;
         }
 
         .hero-title {
             font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            line-height: 1.2;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            white-space: nowrap;
         }
 
         .hero-description {
-            font-size: 20px;
-            margin-bottom: 40px;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
             opacity: 0.9;
-            line-height: 1.6;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+            line-height: 1.8;
         }
 
         .hero-buttons {
             display: flex;
-            gap: 20px;
+            gap: 1rem;
             justify-content: center;
             flex-wrap: wrap;
         }
 
         .btn-primary {
-            background: #f57c1f;
-            color: white;
-            padding: 15px 30px;
-            border-radius: 8px;
-            text-decoration: none;
+            background: var(--accent-color);
+            color: var(--white);
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
             font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-        }
-
-        .btn-primary:hover {
-            background: #d4661a;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 4px 15px rgba(30, 64, 175, 0.3);
         }
 
         .btn-secondary {
             background: transparent;
-            color: white;
-            padding: 15px 30px;
-            border: 2px solid white;
-            border-radius: 8px;
-            text-decoration: none;
+            color: var(--white);
+            padding: 1rem 2rem;
+            border: 2px solid var(--white);
+            border-radius: 50px;
             font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
             transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary:hover, .btn-secondary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
         }
 
         .btn-secondary:hover {
-            background: white;
-            color: #f57c1f;
-        }
-
-        /* Slider Navigation */
-        .slider-nav {
-            position: absolute;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 15px;
-            z-index: 3;
-        }
-
-        .slider-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.5);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-        }
-
-        .slider-dot.active {
-            background: white;
-            transform: scale(1.2);
-        }
-
-        .slider-arrows {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            z-index: 3;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            padding: 0 30px;
-            pointer-events: none;
-        }
-
-        .slider-arrow {
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
-            border: none;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-            pointer-events: all;
-            backdrop-filter: blur(10px);
-        }
-
-        .slider-arrow:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: scale(1.1);
-        }
-
-        /* Responsive Styles */
-        @media (max-width: 768px) {
-            .hero {
-                height: 90vh;
-                min-height: 500px;
-                margin-top: 70px;
-            }
-
-            .hero-slide {
-                background-attachment: scroll;
-                /* Remove parallax on mobile for better performance */
-            }
-
-            .hero-title {
-                font-size: 2.2rem;
-            }
-
-            .hero-description {
-                font-size: 16px;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-                align-items: center;
-                gap: 15px;
-            }
-
-            .btn-primary,
-            .btn-secondary {
-                padding: 12px 25px;
-                font-size: 14px;
-            }
-
-            .slider-arrow {
-                width: 50px;
-                height: 50px;
-                font-size: 18px;
-            }
-
-            .slider-arrows {
-                padding: 0 20px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero-title {
-                font-size: 1.8rem;
-            }
-
-            .hero-subtitle {
-                font-size: 16px;
-            }
-
-            .hero-description {
-                font-size: 14px;
-            }
-
-            .slider-nav {
-                bottom: 20px;
-            }
-
-            .slider-dot {
-                width: 10px;
-                height: 10px;
-            }
-
-            .slider-arrow {
-                width: 40px;
-                height: 40px;
-                font-size: 16px;
-            }
-
-            .slider-arrows {
-                padding: 0 15px;
-            }
-        }
-
-
-        /* About Section */
-        .about {
-            padding: 100px 0;
             background: var(--white);
+            color: var(--primary-color);
         }
 
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
+        /* Services Section */
+        .services {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
         }
 
-        .about-image {
-            position: relative;
-        }
-
-        .about-image img {
-            width: 100%;
-            height: auto;
-            border-radius: 12px;
-            box-shadow: var(--shadow-lg);
-        }
-
-        .about-content h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            color: var(--text-dark);
-        }
-
-        .about-content p {
-            font-size: 18px;
-            color: var(--text-light);
-            margin-bottom: 25px;
-            line-height: 1.7;
-        }
-
-        /* Features Section */
-        .features {
-            padding: 100px 0;
-            background: var(--bg-gray);
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .section-header h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 15px;
-            color: var(--text-dark);
-        }
-
-        .section-header p {
-            font-size: 18px;
-            color: var(--text-light);
-            max-width: 600px;
+        .container {
+            max-width: 1200px;
             margin: 0 auto;
+            padding: 0 2rem;
         }
 
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
-        }
-
-        .feature-card {
-            background: var(--white);
-            border-radius: 12px;
-            padding: 40px 30px;
+        .section-title {
             text-align: center;
-            box-shadow: var(--shadow);
-            transition: all 0.3s ease;
-            border: 1px solid var(--border-color);
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
         }
 
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .feature-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 8px;
-            margin-bottom: 25px;
-        }
-
-        .feature-card h3 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 15px;
-            color: var(--text-dark);
-        }
-
-        .feature-card p {
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
             color: var(--text-light);
-            margin-bottom: 25px;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            animation: iconFloat 3s ease-in-out infinite;
+        }
+
+        @keyframes iconFloat {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+            25% {
+                transform: translateY(-8px) rotate(-2deg);
+            }
+            50% {
+                transform: translateY(-12px) rotate(0deg);
+            }
+            75% {
+                transform: translateY(-8px) rotate(2deg);
+            }
+        }
+
+        .service-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .service-description {
+            color: var(--text-light);
             line-height: 1.6;
         }
 
-        .feature-btn {
-            background: var(--primary-color);
-            color: var(--white);
-            padding: 12px 24px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            display: inline-block;
-        }
-
-        .feature-btn:hover {
-            background: var(--primary-dark);
-            transform: translateY(-2px);
-        }
-
-        /* CTA Section */
-        .cta-section {
-            padding: 80px 0;
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
-            color: var(--white);
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta-section::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
-            animation: float 20s linear infinite;
-        }
-
-        @keyframes float {
-            0% {
-                transform: translateX(0) translateY(0);
-            }
-
-            100% {
-                transform: translateX(-50px) translateY(-50px);
-            }
-        }
-
-        .cta-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .cta-content h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-        }
-
-        .cta-content p {
-            font-size: 18px;
-            margin-bottom: 40px;
-            opacity: 0.9;
-        }
-
-        .cta-image {
-            margin: 40px 0;
-        }
-
-        .cta-image img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 12px;
-            box-shadow: var(--shadow-lg);
-        }
-
-        
- 
-
+        /* Responsive Design */
         @media (max-width: 768px) {
-           
+            .nav-menu {
+                display: none;
+            }
 
-            .hero {
-                margin-top: 70px;
-                height: 90vh;
-                min-height: 500px;
+            .mobile-menu-toggle {
+                display: block;
             }
 
             .hero-title {
-                font-size: 2.2rem;
+                font-size: 2.5rem;
+                white-space: normal;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
             }
 
             .hero-description {
-                font-size: 16px;
+                font-size: 1rem;
             }
 
             .hero-buttons {
                 flex-direction: column;
                 align-items: center;
-                gap: 15px;
             }
 
-            .btn-primary,
-            .btn-secondary {
-                padding: 12px 25px;
-                font-size: 14px;
+            .btn-primary, .btn-secondary {
+                width: 200px;
+                justify-content: center;
             }
 
-            .slider-arrow {
-                width: 50px;
-                height: 50px;
-                font-size: 18px;
-            }
-
-            .slider-arrows {
-                padding: 0 20px;
-            }
-
-            .about-grid {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-
-            .features-grid {
+            .services-grid {
                 grid-template-columns: 1fr;
             }
 
-           
+            .section-title {
+                font-size: 2rem;
+            }
         }
 
         @media (max-width: 480px) {
-            
             .hero-title {
-                font-size: 1.8rem;
+                font-size: 2rem;
             }
 
-            .hero-subtitle {
-                font-size: 16px;
+            .nav-container {
+                padding: 0 1rem;
             }
 
-            .hero-description {
-                font-size: 14px;
+            .hero-content {
+                padding: 0 1rem;
             }
 
-            .slider-nav {
-                bottom: 20px;
-            }
-
-            .slider-dot {
-                width: 10px;
-                height: 10px;
-            }
-
-            .slider-arrow {
-                width: 40px;
-                height: 40px;
-                font-size: 16px;
-            }
-
-            .slider-arrows {
-                padding: 0 15px;
+            .container {
+                padding: 0 1rem;
             }
         }
 
-      
+        /* Animation Classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
-
 <body>
-    <!--====== PRELOADER PART START ======-->
+    <!-- Navigation -->
+    <nav class="navbar transparent" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <img src="./assets/logo.png" style="width: 50px; height: 50px;"/>
+                BTC
+            </a>
+            
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li><a href="#quote" class="cta-button">Get Quote</a></li>
+            </ul>
 
-    <div class="preloader">
-        <div class="loader">
-            <div class="ytp-spinner">
-                <div class="ytp-spinner-container">
-                    <div class="ytp-spinner-rotator">
-                        <div class="ytp-spinner-left">
-                            <div class="ytp-spinner-circle"></div>
-                        </div>
-                        <div class="ytp-spinner-right">
-                            <div class="ytp-spinner-circle"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <button class="mobile-menu-toggle" id="mobile-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
-    </div>
-    <!-- Header -->
-    <header class="header">
-        <div class="header-top pb-10">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="header-top-content d-md-flex justify-content-between align-items-center">
-                            <div class="header-info pt-10 d-none d-md-block">
-                                <ul>
-                                    <li>www.trkdispatch.com</li>
-                                </ul>
-                            </div>
-                            <!-- header info -->
-                            <div class="header-social text-center text-md-right pt-10">
-                                <ul>
-                                    <li><a href="sign-up.html">Sign Up</a></li>
-                                    <li><a href="log_in.html">Log In</a></li>
-                                    <li><a href="contact.html">Contact Us</a></li>
-                                    <li><a href="#footer">Links</a></li>
-                                </ul>
-                            </div>
-                            <!-- header social -->
-                        </div>
-                    </div>
-                </div>
-                <!-- row -->
-            </div>
-            <!-- container -->
-        </div>
-        <!-- header-top -->
-
-        <nav class="navbar">
-            <div class="container">
-                <div class="navbar-content">
-                    <a href="index.html" class="logo">
-                        <img src="assets/images/teckusa.png" alt="TRK Dispatch Logo">
-                        <div class="logo-text">
-                            <div class="logo-title">TRK DISPATCH</div>
-                            <div class="logo-subtitle">Professional Dispatch Software</div>
-                        </div>
-                    </a>
-
-                    <ul class="nav-menu">
-                        <li><a href="features.html">Features</a></li>
-                        <li><a href="carriers.html">Carriers</a></li>
-                        <li><a href="owner_operator.html">Owner Operators</a></li>
-                        <li><a href="screenshots.html">Screenshots</a></li>
-                        <li><a href="get-started.html">Get Started</a></li>
-                    </ul>
-
-                    <div class="nav-actions">
-                        <a href="tel:4638888803" class="cta-button">
-                            <i class="fas fa-phone"></i>
-                            (463) 888-8803
-                        </a>
-                    </div>
-
-                    <!-- Mobile Menu Toggle -->
-                    <button class="menu-toggle" id="menuToggle">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </button>
-                </div>
-            </div>
-        </nav>
 
         <!-- Mobile Menu -->
-        <div class="mobile-menu" id="mobileMenu">
-            <div class="mobile-nav-content">
-                <ul class="mobile-nav-links">
-                    <li><a href="features.html">Features</a></li>
-                    <li><a href="carriers.html">Carriers</a></li>
-                    <li><a href="owner_operator.html">Owner Operators</a></li>
-                    <li><a href="screenshots.html">Screenshots</a></li>
-                    <li><a href="get-started.html">Get Started</a></li>
-                    <li><a href="sign-up.html">Sign Up</a></li>
-                    <li><a href="contact.html">Contact Us</a></li>
-                </ul>
-
-                <div class="mobile-nav-actions">
-                    <a href="log_in.html" class="login-btn">Login</a>
-                    <a href="tel:4638888803" class="cta-button">
-                        <i class="fas fa-phone"></i>
-                        Call (463) 888-8803
-                    </a>
-                </div>
-
-                <div class="mobile-contact-info">
-                    <h4>Contact Information</h4>
-                    <div class="mobile-contact-item">
-                        <i class="fas fa-globe"></i>
-                        <span>www.trkdispatch.com</span>
-                    </div>
-                    <div class="mobile-contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <span>info@trkdispatch.com</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-    <!-- Hero Slider Section -->
-    <section class="hero">
-        <div class="hero-slider">
-            <!-- Slide 1 -->
-            <!-- Slide 1 -->
-            <div class="hero-slide active" style="background-image: url('./images/slider1.jpg');">
-                <div class="container">
-                    <div class="hero-content">
-                        <p class="hero-subtitle">A comprehensive and easy-to-use</p>
-                        <h1 class="hero-title">Truck Dispatch Software Solution</h1>
-                        <p class="hero-description">Professional web-based dispatch software for small to medium-sized
-                            carriers and trucking companies. Streamline your operations and maximize efficiency.</p>
-                        <div class="hero-buttons">
-                            <a href="get-started.html" class="btn-primary">Get Started Today</a>
-                            <a href="features.html" class="btn-secondary">Learn More</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Slide 2 -->
-            <div class="hero-slide " style="background-image: url('./images/slider2.jpg');">
-                <div class="container">
-                    <div class="hero-content">
-                        <p class="hero-subtitle">Maximize your operational efficiency</p>
-                        <h1 class="hero-title">Advanced Fleet Management</h1>
-                        <p class="hero-description">Track, manage and maintain your fleet assets with sophisticated
-                            tools. Reduce wasted time, improve productivity and increase your revenue with our powerful
-                            platform.</p>
-                        <div class="hero-buttons">
-                            <a href="carriers.html" class="btn-primary">For Carriers</a>
-                            <a href="owner_operator.html" class="btn-secondary">Owner Operators</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Slide 3 -->
-            <div class="hero-slide " style="background-image: url('./images/slider3.jpg');">
-                <div class="container">
-                    <div class="hero-content">
-                        <p class="hero-subtitle">Real-time data with multi-layered security</p>
-                        <h1 class="hero-title">Secure & Scalable Solution</h1>
-                        <p class="hero-description">Access real-time data quickly and easily with no defects. Our
-                            flexible, scalable platform is equipped with problem-locating and problem-solving utilities
-                            for your business.</p>
-                        <div class="hero-buttons">
-                            <a href="screenshots.html" class="btn-primary">View Screenshots</a>
-                            <a href="contact.html" class="btn-secondary">Contact Sales</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Slider Navigation -->
-        <div class="slider-nav">
-            <div class="slider-dot active" data-slide="0"></div>
-            <div class="slider-dot" data-slide="1"></div>
-            <div class="slider-dot" data-slide="2"></div>
-        </div>
-
-        <!-- Slider Arrows -->
-        <div class="slider-arrows">
-            <button class="slider-arrow prev" id="prevSlide">
-                <i class="fas fa-chevron-left"></i>
+        <div class="mobile-menu" id="mobile-menu">
+            <button class="close-btn" id="close-mobile-menu">
+                <i class="fas fa-times"></i>
             </button>
-            <button class="slider-arrow next" id="nextSlide">
-                <i class="fas fa-chevron-right"></i>
-            </button>
+            <ul class="mobile-nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#quote" class="cta-button">Get Quote</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <video class="hero-video" autoplay muted loop>
+            <source src="./assets/videoplayback.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="hero-overlay"></div>
+        
+        <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
+            <h2 class="hero-subtitle">Professional Volvo Truck Specialists</h2>
+            <h1 class="hero-title">Brownsburg Truck Center</h1>
+            <p class="hero-description">
+                With over 15 years of specialized experience in Volvo truck maintenance and repair, 
+                we provide industry-leading service to keep your fleet running smoothly and efficiently.
+            </p>
+            <div class="hero-buttons">
+                <a href="#services" class="btn-primary">
+                    <i class="fas fa-tools"></i>
+                    Our Services
+                </a>
+                <a href="#contact" class="btn-secondary">
+                    <i class="fas fa-phone"></i>
+                    Emergency Call
+                </a>
+            </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section class="about" id="about">
+    <!-- Services Section -->
+    <section class="services" id="services">
         <div class="container">
-            <div class="about-grid">
-                <div class="about-image">
-                    <img src="./assets/images/about.jpg" alt="TRK Dispatch Software Interface">
+            <h2 class="section-title" data-aos="fade-up">Our Specialized Services</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+                Comprehensive Volvo truck repair and maintenance services designed to maximize your vehicle's performance and lifespan
+            </p>
+            
+            <div class="services-grid">
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-icon">
+                        <i class="fas fa-cog"></i>
+                    </div>
+                    <h3 class="service-title">Engine Diagnostics</h3>
+                    <p class="service-description">
+                        Advanced computer diagnostics and engine repair services specifically for Volvo truck systems
+                    </p>
                 </div>
-                <div class="about-content">
-                    <h2>Welcome to TRKDispatch</h2>
-                    <p>TRKDispatch software will help you maximize your operational efficiency and managerial
-                        capability. It will help you to reduce wasted time and effort, improve productivity and increase
-                        your revenue.</p>
-                    <p>TRKDispatch is the solution you need for tracking, managing and maintaining fleet assets. Our
-                        dispatch software will help you realize the true potential of your company with an affordable,
-                        sophisticated, and easy-to-use solution.</p>
-                    <p>TRKDispatch will provide your company with an affordable solution that enables you to use our
-                        software without changing your computer infrastructure. It's highly sophisticated, advanced and
-                        easy-to-use, giving you all the tools you need to grow your business and satisfy your customers.
+                
+                <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-icon">
+                        <i class="fas fa-wrench"></i>
+                    </div>
+                    <h3 class="service-title">Transmission Service</h3>
+                    <p class="service-description">
+                        Complete transmission repair, maintenance, and fluid changes for optimal performance
+                    </p>
+                </div>
+                
+                <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="service-icon">
+                        <i class="fas fa-tachometer-alt"></i>
+                    </div>
+                    <h3 class="service-title">Brake Systems</h3>
+                    <p class="service-description">
+                        Comprehensive brake inspection, repair, and replacement services for maximum safety
+                    </p>
+                </div>
+                
+                <div class="service-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="service-icon">
+                        <i class="fas fa-battery-full"></i>
+                    </div>
+                    <h3 class="service-title">Electrical Systems</h3>
+                    <p class="service-description">
+                        Expert electrical troubleshooting and repair for all Volvo truck electronic components
+                    </p>
+                </div>
+                
+                <div class="service-card" data-aos="fade-up" data-aos-delay="600">
+                    <div class="service-icon">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <h3 class="service-title">Preventive Maintenance</h3>
+                    <p class="service-description">
+                        Scheduled maintenance programs to prevent costly repairs and extend vehicle life
+                    </p>
+                </div>
+                
+                <div class="service-card" data-aos="fade-up" data-aos-delay="700">
+                    <div class="service-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3 class="service-title">24/7 Emergency</h3>
+                    <p class="service-description">
+                        Round-the-clock emergency repair services to get you back on the road quickly
                     </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section class="features">
-        <div class="container">
-            <div class="section-header">
-                <h2>Get Organized</h2>
-                <p>TrkDispatch is the solution you need for tracking, managing and maintaining fleet assets with
-                    professional-grade tools and features.</p>
-            </div>
-
-            <div class="features-grid">
-                <div class="feature-card">
-                    <img src="./assets/images/feature1.jpg" alt="Truck Dispatch Software Features">
-                    <h3>What TrkDispatch Can Do For You</h3>
-                    <p>TrkDispatch trucking software will help you maximize your operational efficiency and managerial
-                        capability. It will help you reduce wasted time and effort, improve productivity and increase
-                        your revenue.</p>
-                    <a href="#about" class="feature-btn">Learn More</a>
-                </div>
-
-                <div class="feature-card">
-                    <img src="./assets/images/feature2.jpg" alt="Carrier Features">
-                    <h3>Carrier Features for TRKDispatch Customers</h3>
-                    <p>TRKDispatch offers web-based, inexpensive and easy-to-use truck dispatch software that meets your
-                        needs, whether you are a small, medium or large company, or whether you have one or fifty or
-                        more trucks.</p>
-                    <a href="carriers.html" class="feature-btn">Explore Features</a>
-                </div>
-
-                <div class="feature-card">
-                    <img src="./assets/images/feature3.jpg" alt="Owner Operator Solutions">
-                    <h3>Solutions for Owner Operators</h3>
-                    <p>Not just for larger businesses, TRK Dispatch is dedicated to helping owner operators as well. If
-                        you're running a single truck or two, TRK Dispatch is the best and most cost-effective software
-                        solution.</p>
-                    <a href="owner_operator.html" class="feature-btn">Get Started</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="container">
-            <div class="cta-content">
-                <div class="cta-image">
-                    <img src="./assets/images/screenshots.png" alt="TRK Dispatch Screenshots">
-                </div>
-                <h2>Real-time Data Access with Multi-layered Security</h2>
-                <p>TrkDispatch enables you to access real-time data quickly and easily with no defects and with
-                    multi-layered security. The program is flexible, scalable and equipped with problem-locating and
-                    problem-solving utilities.</p>
-                <a href="get-started.html" style="border: 2px solid #d4661a; color:#d4661a; background-color: white;"
-                    class="btn-primary">Get Started Today</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer" id="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-section">
-                    <h4>About TRKdispatch</h4>
-                    <p>TRKDispatch is 100% web based, inexpensive secure truck dispatch software and simple to use and
-                        will handle all of your freight and dispatch needs as well as all of the back-office and
-                        reporting functions.</p>
-                    <p>It is the perfect tool to help you grow and manage your business more efficiently, allowing you
-                        to concentrate on increasing your profits.</p>
-                </div>
-
-                <div class="footer-section">
-                    <h4>Quick Info</h4>
-                    <ul class="footer-links">
-                        <li><a href="index.html">About Us</a></li>
-                        <li><a href="features.html">Software Features</a></li>
-                        <li><a href="carriers.html">Carriers</a></li>
-                        <li><a href="owner_operator.html">Owner Operators</a></li>
-                        <li><a href="screenshots.html">Screenshots</a></li>
-                        <li><a href="get-started.html">Get Started</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-section">
-                    <h4>Important Links</h4>
-                    <ul class="footer-links">
-                        <li><a href="http://www.fmcsa.dot.gov/forms/print/r-l-forms.htm">FMCSA Registration Forms</a>
-                        </li>
-                        <li><a
-                                href="http://www.fmcsa.dot.gov/registration-licensing/online-registration/onlineregdescription.htm">FMCSA
-                                Registration & Updates</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-section">
-                    <h4>Contact Info</h4>
-                    <div class="contact-item">
-                        <i class="fas fa-phone contact-icon"></i>
-                        <div>
-                            <p>(463) 888 8803</p>
-                            <p>(888) 209 6733 (Fax)</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-envelope contact-icon"></i>
-                        <p><a href="mailto:sales@trkdispatch.com"></a>sales@trkdispatch.com</a></p>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt contact-icon"></i>
-                        <div>
-                            <p>TECK USA Inc.<br>
-                                8230 Country Club Pl.
-                                Indianapolis, IN-46214</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <p>© 2025 Copyright by www.trkdispatch.com. All rights reserved.
-                    <a href="https://www.teckusa.com" target="_blank">
-                        <img src="./assets/images/teckusa.png" alt="Teck USA">
-                    </a>
-                </p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Back to Top Button -->
-    <a href="#" class="back-to-top" id="backToTop">
-        <i class="fas fa-chevron-up"></i>
-    </a>
-    <script src="./js/index.js"></script>
-
-
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
 
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        const heroHeight = document.querySelector('.hero').offsetHeight;
 
-        // Hero Slider Functionality
-        const slides = document.querySelectorAll('.hero-slide');
-        const dots = document.querySelectorAll('.slider-dot');
-        const prevButton = document.getElementById('prevSlide');
-        const nextButton = document.getElementById('nextSlide');
-        let currentSlide = 0;
-        let autoSlideInterval;
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > heroHeight - 100) {
+                navbar.classList.remove('transparent');
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+                navbar.classList.add('transparent');
+            }
+        });
 
-        function showSlide(index) {
-            slides.forEach((slide, i) => {
-                slide.classList.remove('active', 'prev');
-                if (i === index) {
-                    slide.classList.add('active');
-                } else if (i === (index - 1 + slides.length) % slides.length) {
-                    slide.classList.add('prev');
+        // Mobile menu toggle
+        const mobileToggle = document.getElementById('mobile-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeMobileMenu = document.getElementById('close-mobile-menu');
+
+        mobileToggle.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+        });
+
+        closeMobileMenu.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+        });
+
+        // Close mobile menu when clicking on links
+        const mobileLinks = document.querySelectorAll('.mobile-nav-links a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        const navLinks = document.querySelectorAll('.nav-link, .cta-button');
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href');
+                if (targetId.startsWith('#')) {
+                    const targetSection = document.querySelector(targetId);
+                    if (targetSection) {
+                        targetSection.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
                 }
             });
+        });
 
-            dots.forEach((dot, i) => {
-                dot.classList.toggle('active', i === index);
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
             });
+        }, observerOptions);
 
-            currentSlide = index;
-        }
-
-        function nextSlide() {
-            showSlide((currentSlide + 1) % slides.length);
-        }
-
-        function prevSlide() {
-            showSlide((currentSlide - 1 + slides.length) % slides.length);
-        }
-
-        function startAutoSlide() {
-            autoSlideInterval = setInterval(nextSlide, 5000);
-        }
-
-        function stopAutoSlide() {
-            clearInterval(autoSlideInterval);
-        }
-
-        nextButton.addEventListener('click', () => {
-            stopAutoSlide();
-            nextSlide();
-            startAutoSlide();
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
         });
 
-        prevButton.addEventListener('click', () => {
-            stopAutoSlide();
-            prevSlide();
-            startAutoSlide();
+        // Video fallback for better compatibility
+        const video = document.querySelector('.hero-video');
+        video.addEventListener('error', () => {
+            // If video fails to load, add a fallback background
+            const hero = document.querySelector('.hero');
+            hero.style.background = 'linear-gradient(135deg, #000000 0%, #1e40af 100%)';
         });
-
-        dots.forEach(dot => {
-            dot.addEventListener('click', () => {
-                stopAutoSlide();
-                showSlide(parseInt(dot.dataset.slide));
-                startAutoSlide();
-            });
-        });
-
-        startAutoSlide();
-
-
-
-
-
     </script>
 </body>
-
 </html>
