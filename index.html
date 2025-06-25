@@ -503,8 +503,8 @@
 
     <!-- Hero Section -->
     <section class="hero" id="home">
-        <video class="hero-video" autoplay muted loop>
-            <source src="./assets/videoplayback.mp4" type="video/mp4">
+        <video id="heroVideo" class="hero-video" autoplay muted loop>
+            <source src="./assets/videoplayback1.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
         <div class="hero-overlay"></div>
@@ -690,6 +690,18 @@
             const hero = document.querySelector('.hero');
             hero.style.background = 'linear-gradient(135deg, #000000 0%, #1e40af 100%)';
         });
+
+
+          const videotimer = document.getElementById("heroVideo");
+
+  // Restart video every 30 seconds
+  setInterval(() => {
+    if (videotimer) {
+      videotimer.currentTime = 0;
+      videotimer.play(); // Ensure it resumes playback
+    }
+  }, 30000); // 30,000 milliseconds = 30 sec
+        
     </script>
 </body>
 </html>
