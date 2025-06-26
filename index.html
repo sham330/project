@@ -17,11 +17,11 @@
 
     <style>
         :root {
-            --primary-color: #000000;
+            --primary-color:  #2C228C;
             --secondary-color: #f5f5f5;
             --accent-color: #f57c1f;
-            --text-dark: #2d3748;
-            --text-light: #718096;
+            --text-dark:  #2C228C;
+            --text-light: #938BFF;
             --white: #ffffff;
             --gradient: linear-gradient(135deg, #000000 0%, #f57c1f 100%);
         }
@@ -305,92 +305,7 @@
             color: var(--primary-color);
         }
 
-        /* Services Section */
-        .services {
-            padding: 6rem 0;
-            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--primary-color);
-        }
-
-        .section-subtitle {
-            text-align: center;
-            font-size: 1.1rem;
-            color: var(--text-light);
-            margin-bottom: 3rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .service-card {
-            background: var(--white);
-            padding: 2rem;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-        }
-
-        .service-icon {
-            font-size: 3rem;
-            color: var(--accent-color);
-            margin-bottom: 1rem;
-            animation: iconFloat 3s ease-in-out infinite;
-        }
-
-        @keyframes iconFloat {
-            0%, 100% {
-                transform: translateY(0px) rotate(0deg);
-            }
-            25% {
-                transform: translateY(-8px) rotate(-2deg);
-            }
-            50% {
-                transform: translateY(-12px) rotate(0deg);
-            }
-            75% {
-                transform: translateY(-8px) rotate(2deg);
-            }
-        }
-
-        .service-title {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: var(--primary-color);
-        }
-
-        .service-description {
-            color: var(--text-light);
-            line-height: 1.6;
-        }
-
+       
         /* Responsive Design */
         @media (max-width: 768px) {
             .nav-menu {
@@ -424,13 +339,7 @@
                 justify-content: center;
             }
 
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
+           
         }
 
         @media (max-width: 480px) {
@@ -462,6 +371,226 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        /*About Section CSS*/
+        .about-section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 40px 5%;
+      background: var(--white);
+      gap: 40px;
+    }
+
+    .about-text {
+      flex: 1 1 450px;
+      max-width: 600px;
+      padding: 20px;
+      animation: slideInLeft 1s ease-out;
+    }
+
+    .about-text h2 {
+      font-size: clamp(28px, 5vw, 48px);
+      color: var(--text-dark);
+      margin-bottom: 25px;
+      font-weight: 700;
+      position: relative;
+      line-height: 1.2;
+    }
+
+    .about-text h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 80px;
+      height: 4px;
+      border-radius: 2px;
+    }
+
+    .about-text p {
+      font-size: clamp(16px, 2.5vw, 18px);
+      color: var(--text-light);
+      line-height: 1.8;
+      margin-bottom: 30px;
+      font-weight: 400;
+    }
+
+    .about-features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 0;
+      flex: 1 1 200px;
+    }
+
+    .feature-item i {
+      color: var(--accent-color);
+      font-size: 20px;
+    }
+
+    .feature-item span {
+      color: var(--text-dark);
+      font-weight: 500;
+      font-size: 14px;
+    }
+
+    .gear-container {
+      flex: 1 1 350px;
+      max-width: 500px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      min-height: 400px;
+      animation: slideInRight 1s ease-out;
+    }
+
+    .gear-icon {
+      font-size: clamp(250px, 25vw, 380px);
+      color: var(--accent-color);
+      animation: rotateGear 20s linear infinite;
+      position: relative;
+      z-index: 1;
+      filter: drop-shadow(0 10px 30px rgba(245, 124, 31, 0.3));
+    }
+
+    .gear-image {
+      width: clamp(180px, 18vw, 260px);
+      height: clamp(180px, 18vw, 260px);
+      border-radius: 50%;
+      object-fit: cover;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      z-index: 2;
+      transform: translate(-50%, -50%);
+      border: 6px solid var(--white);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .gear-image:hover {
+      transform: translate(-50%, -50%) scale(1.05);
+    }
+
+    @keyframes rotateGear {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    @keyframes slideInLeft {
+      0% {
+        opacity: 0;
+        transform: translateX(-50px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes slideInRight {
+      0% {
+        opacity: 0;
+        transform: translateX(50px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    /* Enhanced Mobile Responsiveness */
+    @media (max-width: 768px) {
+      .about-section {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px 4%;
+        gap: 20px;
+        min-height: auto;
+      }
+
+      .about-text {
+        order: 2;
+        max-width: 100%;
+        padding: 15px;
+      }
+
+      .gear-container {
+        order: 1;
+        max-width: 100%;
+        min-height: 300px;
+        margin-bottom: 10px;
+      }
+
+      .about-text h2::after {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .about-features {
+        justify-content: center;
+      }
+
+      .feature-item {
+        justify-content: center;
+        flex: 1 1 150px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .about-section {
+        padding: 20px 3%;
+        gap: 15px;
+      }
+
+      .about-text {
+        padding: 10px;
+      }
+
+      .gear-container {
+        min-height: 250px;
+      }
+
+      .about-text h2 {
+        margin-bottom: 20px;
+      }
+
+      .about-text p {
+        margin-bottom: 20px;
+      }
+
+      .feature-item {
+        flex: 1 1 100%;
+        font-size: 13px;
+      }
+    }
+
+    /* Ultra-wide screen optimization */
+    @media (min-width: 1400px) {
+      .about-section {
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+    }
+
+    /* High DPI displays */
+    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+      .gear-image {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+      }
+    }
     </style>
 </head>
 <body>
@@ -475,8 +604,9 @@
             
             <ul class="nav-menu">
                 <li><a href="#home" class="nav-link">Home</a></li>
+                                <li><a href="#about" class="nav-link">About</a></li>
+
                 <li><a href="#services" class="nav-link">Services</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
                 <li><a href="#quote" class="cta-button">Get Quote</a></li>
             </ul>
@@ -493,8 +623,9 @@
             </button>
             <ul class="mobile-nav-links">
                 <li><a href="#home">Home</a></li>
+                                <li><a href="#about">About</a></li>
+
                 <li><a href="#services">Services</a></li>
-                <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
                 <li><a href="#quote" class="cta-button">Get Quote</a></li>
             </ul>
@@ -511,9 +642,9 @@
         
         <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
             <h2 class="hero-subtitle">Professional Volvo Truck Specialists</h2>
-            <h1 class="hero-title">Brownsburg Truck Center</h1>
+            <h1 class="hero-title">BROWNSBURG TRUCK CENTER</h1>
             <p class="hero-description">
-                With over 15 years of specialized experience in Volvo truck maintenance and repair, 
+                With over 20 years of specialized experienced mechanics in Volvo truck maintenance and repair, 
                 we provide industry-leading service to keep your fleet running smoothly and efficiently.
             </p>
             <div class="hero-buttons">
@@ -529,77 +660,40 @@
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section class="services" id="services">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Our Specialized Services</h2>
-            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
-                Comprehensive Volvo truck repair and maintenance services designed to maximize your vehicle's performance and lifespan
-            </p>
-            
-            <div class="services-grid">
-                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="service-icon">
-                        <i class="fas fa-cog"></i>
-                    </div>
-                    <h3 class="service-title">Engine Diagnostics</h3>
-                    <p class="service-description">
-                        Advanced computer diagnostics and engine repair services specifically for Volvo truck systems
-                    </p>
-                </div>
-                
-                <div class="service-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="service-icon">
-                        <i class="fas fa-wrench"></i>
-                    </div>
-                    <h3 class="service-title">Transmission Service</h3>
-                    <p class="service-description">
-                        Complete transmission repair, maintenance, and fluid changes for optimal performance
-                    </p>
-                </div>
-                
-                <div class="service-card" data-aos="fade-up" data-aos-delay="400">
-                    <div class="service-icon">
-                        <i class="fas fa-tachometer-alt"></i>
-                    </div>
-                    <h3 class="service-title">Brake Systems</h3>
-                    <p class="service-description">
-                        Comprehensive brake inspection, repair, and replacement services for maximum safety
-                    </p>
-                </div>
-                
-                <div class="service-card" data-aos="fade-up" data-aos-delay="500">
-                    <div class="service-icon">
-                        <i class="fas fa-battery-full"></i>
-                    </div>
-                    <h3 class="service-title">Electrical Systems</h3>
-                    <p class="service-description">
-                        Expert electrical troubleshooting and repair for all Volvo truck electronic components
-                    </p>
-                </div>
-                
-                <div class="service-card" data-aos="fade-up" data-aos-delay="600">
-                    <div class="service-icon">
-                        <i class="fas fa-calendar-check"></i>
-                    </div>
-                    <h3 class="service-title">Preventive Maintenance</h3>
-                    <p class="service-description">
-                        Scheduled maintenance programs to prevent costly repairs and extend vehicle life
-                    </p>
-                </div>
-                
-                <div class="service-card" data-aos="fade-up" data-aos-delay="700">
-                    <div class="service-icon">
-                        <i class="fas fa-clock"></i>
-                    </div>
-                    <h3 class="service-title">24/7 Emergency</h3>
-                    <p class="service-description">
-                        Round-the-clock emergency repair services to get you back on the road quickly
-                    </p>
-                </div>
-            </div>
+   
+    <!--About Section-->
+    <section id="about" class="about-section">
+    <div class="about-text">
+      <h2>About Our Services</h2>
+      <p>
+We provide expert repair and maintenance services for all types of trucks, with specialized expertise in servicing Volvo vehicles. Our certified professionals and top-tier tools ensure smooth, reliable, and road-ready performance.
+
+      </p>
+      <div class="about-features">
+        <div class="feature-item">
+          <i class="	fas fa-toolbox"></i>
+          <span>Expert Repair</span>
         </div>
-    </section>
+        <div class="feature-item">
+          <i class="fas fa-truck"></i>
+          <span>Fleet Maintenance</span>
+        </div>
+        <div class="feature-item">
+          <i class="fas fa-certificate"></i>
+          <span>Certified Professionals</span>
+        </div>
+        <div class="feature-item">
+          <i class="	fas fa-tools"></i>
+          <span>20+ Years Experience</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="gear-container">
+      <i class="fas fa-cog gear-icon"></i>
+      <img src="./assets/about.jpg" alt="Service Image" class="gear-image">
+    </div>
+  </section>
 
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
