@@ -1,727 +1,437 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Professional Truck Services</title>
-    
-    <!-- AOS Animation Library -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
-    
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #2C228C;
-            --secondary-color: #f5f5f5;
-            --accent-color: #f57c1f;
-            --text-dark: #2C228C;
-            --text-light: #938BFF;
-            --white: #ffffff;
-            --surface: #f8f9ff;
-            --border-light: #e5e7f3;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Google Reviews</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    body {
+      font-family: 'Google Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #fff;
+      color: #3c4043;
+      line-height: 1.4;
+    }
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            line-height: 1.6;
-            color: var(--text-dark);
-            background-color: var(--white);
-        }
+    .reviews-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
 
-        .services-section {
-            padding: 100px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-            background: var(--white);
-        }
+    .business-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 32px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid #e8eaed;
+    }
 
-        .section-header {
-            text-align: center;
-            margin-bottom: 80px;
-        }
+    .business-info {
+      flex: 1;
+    }
 
-        .section-title {
-            font-size: 3rem;
-            font-weight: 800;
-            color: var(--primary-color);
-            margin-bottom: 20px;
-            letter-spacing: -0.02em;
-            position: relative;
-        }
+    .business-name {
+      font-size: 28px;
+      font-weight: 400;
+      color: #202124;
+      margin-bottom: 8px;
+    }
 
-        .section-title::after {
-            content: '';
-            position: absolute;
-            width: 80px;
-            height: 4px;
-            background: var(--accent-color);
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            border-radius: 2px;
-        }
+    .business-rating {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 4px;
+    }
 
-        .section-subtitle {
-            font-size: 1.2rem;
-            color: var(--text-light);
-            max-width: 650px;
-            margin: 20px auto 0;
-            line-height: 1.8;
-            font-weight: 400;
-        }
+    .rating-number {
+      font-size: 18px;
+      font-weight: 500;
+      color: #202124;
+    }
 
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-            gap: 40px;
-            margin-bottom: 100px;
-        }
+    .stars {
+      color: #fbbc04;
+      font-size: 16px;
+      letter-spacing: 1px;
+    }
 
-        .service-card {
-            background: var(--white);
-            border-radius: 20px;
-            overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative;
-            box-shadow: 0 10px 40px rgba(44, 34, 140, 0.1);
-            border: 1px solid var(--border-light);
-        }
+    .review-count {
+      color: #5f6368;
+      font-size: 14px;
+    }
 
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 60px rgba(44, 34, 140, 0.15);
-        }
+    .google-logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      color: #5f6368;
+    }
 
-        .service-header {
-            padding: 40px 32px 32px;
-            position: relative;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            min-height: 200px;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            color: var(--white);
-        }
+    .google-icon {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      position: relative;
+    }
 
-        .service-header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            z-index: 1;
-        }
+    .google-icon::after {
+      content: 'G';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-weight: bold;
+      font-size: 11px;
+    }
 
-        .service-header > * {
-            position: relative;
-            z-index: 2;
-        }
+    .reviews-section {
+      margin-bottom: 32px;
+    }
 
-        /* Background images for each service */
-        .maintenance .service-header {
-            background-image: url('./assets/about.jpg');
-        }
+    .section-title {
+      font-size: 20px;
+      font-weight: 500;
+      color: #202124;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
 
-        .transmission .service-header {
-            background-image: url('./assets/about.jpg');
-        }
+    .reviews-grid {
+      display: grid;
+      gap: 24px;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    }
 
-        .suspension .service-header {
-            background-image: url('./assets/about.jpg');
-        }
+    .review-card {
+      background: #fff;
+      border: 1px solid #e8eaed;
+      border-radius: 8px;
+      padding: 20px;
+      transition: box-shadow 0.2s ease;
+    }
 
-        .hvac .service-header {
-            background-image: url('./assets/about.jpg');
-        }
+    .review-card:hover {
+      box-shadow: 0 2px 8px rgba(60,64,67,0.15);
+    }
 
-        .chrome .service-header {
-            background-image: url('./assets/about.jpg');
-        }
+    .review-header {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 12px;
+      gap: 12px;
+    }
 
-        .certified .service-header {
-            background-image: url('./assets/about.jpg');
-        }
+    .reviewer-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #4285f4, #34a853);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 500;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
 
-        .service-icon {
-            width: 64px;
-            height: 64px;
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px);
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 20px;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-        }
+    .reviewer-info {
+      flex: 1;
+      min-width: 0;
+    }
 
-        .service-icon i {
-            font-size: 1.8rem;
-            color: var(--white);
-        }
+    .reviewer-name {
+      font-size: 16px;
+      font-weight: 500;
+      color: #202124;
+      margin-bottom: 4px;
+    }
 
-        .service-title {
-            font-size: 1.6rem;
-            font-weight: 700;
-            color: var(--white);
-            margin-bottom: 12px;
-            line-height: 1.3;
-        }
+    .review-meta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 4px;
+    }
 
-        .service-description {
-            color: rgba(255, 255, 255, 0.9);
-            font-size: 1rem;
-            line-height: 1.6;
-            font-weight: 400;
-        }
+    .review-stars {
+      color: #fbbc04;
+      font-size: 14px;
+      letter-spacing: 1px;
+    }
 
-        .service-content {
-            padding: 32px;
-            background: var(--white);
-        }
+    .review-date {
+      color: #5f6368;
+      font-size: 14px;
+    }
 
-        .service-list {
-            list-style: none;
-        }
+    .google-user {
+      color: #5f6368;
+      font-size: 13px;
+    }
 
-        .service-item {
-            padding: 16px 0;
-            border-bottom: 1px solid var(--border-light);
-            display: flex;
-            align-items: center;
-            font-size: 0.95rem;
-            color: var(--text-dark);
-            transition: all 0.3s ease;
-            font-weight: 500;
-        }
+    .review-content {
+      font-size: 15px;
+      line-height: 1.5;
+      color: #3c4043;
+      margin-bottom: 16px;
+    }
 
-        .service-item:last-child {
-            border-bottom: none;
-        }
+    .review-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 12px;
+      border-top: 1px solid #f1f3f4;
+    }
 
-        .service-item::before {
-            content: '';
-            width: 8px;
-            height: 8px;
-            background: var(--accent-color);
-            border-radius: 50%;
-            margin-right: 16px;
-            flex-shrink: 0;
-            transition: all 0.3s ease;
-        }
+    .helpful-section {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 14px;
+      color: #5f6368;
+    }
 
-        .service-item:hover {
-            color: var(--primary-color);
-            padding-left: 12px;
-            transform: translateX(4px);
-        }
+    .helpful-btn {
+      background: none;
+      border: none;
+      color: #1a73e8;
+      cursor: pointer;
+      font-size: 14px;
+      padding: 4px 8px;
+      border-radius: 4px;
+      transition: background-color 0.2s;
+    }
 
-        .service-item:hover::before {
-            background: var(--primary-color);
-            transform: scale(1.2);
-        }
+    .helpful-btn:hover {
+      background-color: #f8f9fa;
+    }
 
-        .cta-section {
-            background: var(--primary-color);
-            border-radius: 24px;
-            padding: 80px 40px;
-            text-align: center;
-            color: var(--white);
-            position: relative;
-            overflow: hidden;
-        }
+    .powered-by {
+      text-align: center;
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 1px solid #e8eaed;
+      color: #5f6368;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
 
-        .cta-section::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(245, 124, 31, 0.1) 0%, transparent 70%);
-            animation: pulse 4s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 0.3; }
-            50% { transform: scale(1.1); opacity: 0.1; }
-        }
-
-        .cta-section > * {
-            position: relative;
-            z-index: 2;
-        }
-
-        .cta-title {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 20px;
-            color: var(--white);
-        }
-
-        .cta-text {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            margin-bottom: 40px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.7;
-            font-weight: 400;
-        }
-
-        .cta-button {
-            display: inline-flex;
-            align-items: center;
-            padding: 18px 36px;
-            background: var(--accent-color);
-            color: var(--white);
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            gap: 12px;
-            box-shadow: 0 10px 30px rgba(245, 124, 31, 0.3);
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(245, 124, 31, 0.4);
-            background: #e06b1a;
-        }
-
-        .stats-section {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 30px;
-            margin-top: 60px;
-        }
-
-        .stat-item {
-            text-align: center;
-            padding: 30px 20px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 16px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
-        }
-
-        .stat-item:hover {
-            transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.15);
-        }
-
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--white);
-            display: block;
-            margin-bottom: 8px;
-        }
-
-        .stat-label {
-            font-size: 0.95rem;
-            opacity: 0.9;
-            font-weight: 500;
-        }
-
-        @media (max-width: 768px) {
-            .services-section {
-                padding: 80px 16px;
-            }
-            
-            .services-grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-            
-            .service-header, .service-content {
-                padding: 30px 24px;
-            }
-            
-            .section-title {
-                font-size: 2.5rem;
-            }
-            
-            .cta-section {
-                padding: 60px 24px;
-            }
-            
-            .cta-title {
-                font-size: 2rem;
-            }
-            
-            .stats-section {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 20px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .section-title {
-                font-size: 2.2rem;
-            }
-            
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .stats-section {
-                grid-template-columns: 1fr;
-                gap: 16px;
-            }
-
-            .service-header {
-                min-height: 180px;
-                padding: 30px 24px 24px;
-            }
-        }
-
-        /* Floating elements */
-        .floating-elements {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            pointer-events: none;
-        }
-
-        .floating-element {
-            position: absolute;
-            background: rgba(245, 124, 31, 0.1);
-            border-radius: 50%;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .floating-element:nth-child(1) {
-            width: 60px;
-            height: 60px;
-            top: 20%;
-            left: 10%;
-            animation-delay: 0s;
-        }
-
-        .floating-element:nth-child(2) {
-            width: 40px;
-            height: 40px;
-            top: 60%;
-            right: 15%;
-            animation-delay: 2s;
-        }
-
-        .floating-element:nth-child(3) {
-            width: 80px;
-            height: 80px;
-            bottom: 20%;
-            left: 20%;
-            animation-delay: 4s;
-        }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0px) rotate(0deg);
-            }
-            50% {
-                transform: translateY(-20px) rotate(180deg);
-            }
-        }
-    </style>
+    @media (max-width: 768px) {
+      .business-name {
+        font-size: 24px;
+      }
+      
+      .reviews-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .business-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <section class="services-section">
-        <div class="floating-elements">
-            <div class="floating-element"></div>
-            <div class="floating-element"></div>
-            <div class="floating-element"></div>
+  <div class="reviews-container">
+    <!-- Business Header -->
+    <div class="business-header">
+      <div class="business-info">
+        <h1 class="business-name"><a style="color: #000;" target="_blank" href="https://www.google.com/maps/place/Brownsburg+Truck+Center/@39.7884826,-86.3061606,19z/data=!4m16!1m7!3m6!1s0x886ca9002a409861:0x53cca8614c8a0af7!2sBrownsburg+Truck+Center!8m2!3d39.7884816!4d-86.3055169!16s%2Fg%2F11vrbvtcr2!3m7!1s0x886ca9002a409861:0x53cca8614c8a0af7!8m2!3d39.7884816!4d-86.3055169!9m1!1b1!16s%2Fg%2F11vrbvtcr2?entry=ttu&g_ep=EgoyMDI1MDYyMy4yIKXMDSoASAFQAw%3D%3D">Brownsburg Truck Center</a>
+</h1>
+        <div class="business-rating">
+          <span class="rating-number">5.0</span>
+          <span class="stars">★★★★★</span>
+          <span class="review-count">(24+ reviews)</span>
         </div>
+        <div class="google-user">Google reviews</div>
+      </div>
+      <div class="google-logo">
+<svg class="google-icon" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
+<path fill="#FFC107" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"></path><path fill="#FF3D00" d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z"></path><path fill="#4CAF50" d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z"></path><path fill="#1976D2" d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z"></path>
+</svg>           <span>Google</span>
+      </div>
+    </div>
 
-        <div class="section-header" data-aos="fade-up" data-aos-duration="1000">
-            <h1 class="section-title">Professional Truck Services</h1>
-            <p class="section-subtitle">Comprehensive maintenance and repair solutions delivered by certified technicians with industry-leading expertise and modern equipment.</p>
+    <!-- Reviews Section -->
+    <div class="reviews-section">
+      <h2 class="section-title">
+        Recent reviews
+      </h2>
+      
+      <div class="reviews-grid">
+        <!-- Review 1 -->
+         <a style="text-decoration: none;" target="_blank" href="https://maps.app.goo.gl/UEpWmYAwKWn6SvvLA">
+        <div class="review-card">
+          <div class="review-header">
+            <div class="reviewer-avatar" style="background: darkgreen;">C</div>
+            <div class="reviewer-info">
+              <div class="reviewer-name">Chicago Bek</div>
+              <div class="review-meta">
+                <span class="review-stars">★★★★★</span>
+                <span class="review-date">3 weeks ago</span>
+              </div>
+              <div class="google-user">Google user</div>
+            </div>
+          </div>
+          <div class="review-content">
+They have a experience Mechanics with Good prices, and giving Warranty for his Labor for 90 days and for parts one year. And also they are checking deeply the issues.
+So I’ll recommend for VOLVO Riders.
+Best of luck Guys.          </div>
+          <div class="review-footer">
+            <div class="helpful-section">
+              <button class="helpful-btn">👍 Helpful</button>
+              <span>3 people found this helpful</span>
+            </div>
+          </div>
         </div>
-        
-        <div class="services-grid">
-            <div class="service-card maintenance" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
-                <div class="service-header">
-                    <div class="service-icon">
-                        <i class="fas fa-wrench"></i>
-                    </div>
-                    <h2 class="service-title">General Maintenance & Service</h2>
-                    <p class="service-description">Complete preventive maintenance services to keep your fleet operating at peak performance and minimize costly downtime.</p>
-                </div>
-                <div class="service-content">
-                    <ul class="service-list">
-                        <li class="service-item">Oil Change & Filter Replacement</li>
-                        <li class="service-item">Grease / PM Service</li>
-                        <li class="service-item">DOT Inspection</li>
-                        <li class="service-item">Check Engine Diagnostics</li>
-                        <li class="service-item">DPF Maintenance</li>
-                        <li class="service-item">REGEN Issue Resolution</li>
-                    </ul>
-                </div>
-            </div>
+        </a>
 
-            <div class="service-card transmission" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
-                <div class="service-header">
-                    <div class="service-icon">
-                        <i class="fas fa-cogs"></i>
-                    </div>
-                    <h2 class="service-title">Transmission & Drivetrain</h2>
-                    <p class="service-description">Expert transmission and drivetrain services ensuring smooth power delivery and optimal fuel efficiency for your vehicles.</p>
-                </div>
-                <div class="service-content">
-                    <ul class="service-list">
-                        <li class="service-item">Transmission Service & Repair</li>
-                        <li class="service-item">Power Divider / Rear-end Service</li>
-                        <li class="service-item">Carrier Bearing & U Joints</li>
-                        <li class="service-item">I-Shift Specialist Services</li>
-                    </ul>
-                </div>
-            </div>
+        <!-- Review 2 -->
+                  <a style="text-decoration: none;" target="_blank" href="https://maps.app.goo.gl/t36yDF6w3k88cDQA8">
 
-            <div class="service-card suspension" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
-                <div class="service-header">
-                    <div class="service-icon">
-                        <i class="fas fa-truck"></i>
-                    </div>
-                    <h2 class="service-title">Suspension & Brake System</h2>
-                    <p class="service-description">Critical safety system maintenance ensuring reliable stopping power and stable handling for maximum road safety.</p>
-                </div>
-                <div class="service-content">
-                    <ul class="service-list">
-                        <li class="service-item">Brakes, S Cam / Slack Adjuster</li>
-                        <li class="service-item">Suspension & Drive-train</li>
-                        <li class="service-item">Wheel Seal Replacement</li>
-                    </ul>
-                </div>
+        <div class="review-card">
+          <div class="review-header">
+            <div class="reviewer-avatar"><img src="./assets/review1.png"/></div>
+            <div class="reviewer-info">
+              <div class="reviewer-name">Sukhraj Singh</div>
+              <div class="review-meta">
+                <span class="review-stars">★★★★★</span>
+                <span class="review-date">3 months ago</span>
+              </div>
+              <div class="google-user">Google user</div>
             </div>
-
-            <div class="service-card hvac" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
-                <div class="service-header">
-                    <div class="service-icon">
-                        <i class="fas fa-snowflake"></i>
-                    </div>
-                    <h2 class="service-title">HVAC & Electrical</h2>
-                    <p class="service-description">Complete electrical and climate control solutions for driver comfort and vehicle operational reliability.</p>
-                </div>
-                <div class="service-content">
-                    <ul class="service-list">
-                        <li class="service-item">Electrical System Repair</li>
-                        <li class="service-item">HVAC, AC / Heating Systems</li>
-                        <li class="service-item">Aftermarket Light Installation</li>
-                    </ul>
-                </div>
+          </div>
+          <div class="review-content">
+Harsch is one of best mechanics in Indy because he know what he doing. We been here many time and no complain on his job plus his price is reasonable, he gonna charge you what he did not like other. Thank for your good service Bruh!!!          </div>
+          <div class="review-footer">
+            <div class="helpful-section">
+              <button class="helpful-btn">👍 Helpful</button>
+              <span>1 person found this helpful</span>
             </div>
-
-            <div class="service-card chrome" data-aos="fade-up" data-aos-duration="800" data-aos-delay="500">
-                <div class="service-header">
-                    <div class="service-icon">
-                        <i class="fas fa-gem"></i>
-                    </div>
-                    <h2 class="service-title">Chrome & Polishing</h2>
-                    <p class="service-description">Professional detailing and aesthetic enhancement services to maintain your fleet's professional appearance.</p>
-                </div>
-                <div class="service-content">
-                    <ul class="service-list">
-                        <li class="service-item">Sand, Cut and Polish</li>
-                        <li class="service-item">Chrome Wheel Polish</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="service-card certified" data-aos="fade-up" data-aos-duration="800" data-aos-delay="600">
-                <div class="service-header">
-                    <div class="service-icon">
-                        <i class="fas fa-certificate"></i>
-                    </div>
-                    <h2 class="service-title">Certified Services</h2>
-                    <p class="service-description">Industry-leading certifications and quality assurance backed by OEM-approved tools and diagnostic equipment.</p>
-                </div>
-                <div class="service-content">
-                    <ul class="service-list">
-                        <li class="service-item">Certified Technicians</li>
-                        <li class="service-item">Quality Workmanship Guarantee</li>
-                        <li class="service-item">Timely Service Delivery</li>
-                        <li class="service-item">OEM Approved Software</li>
-                        <li class="service-item">Specialty Tools & Equipment</li>
-                        <li class="service-item">Volvo Specialist</li>
-                    </ul>
-                </div>
-            </div>
+          </div>
         </div>
+        </a>
 
-        <div class="cta-section" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
-            <h2 class="cta-title">Ready to Service Your Fleet?</h2>
-            <p class="cta-text">Get professional truck maintenance and repair services from certified technicians. Contact us today for a consultation.</p>
-            <a href="#contact" class="cta-button">
-                <i class="fas fa-phone"></i>
-                Schedule Service Today
-            </a>
-            
-            <div class="stats-section">
-                <div class="stat-item" data-aos="fade-up" data-aos-duration="600" data-aos-delay="300">
-                    <span class="stat-number">15+</span>
-                    <span class="stat-label">Years Experience</span>
-                </div>
-                <div class="stat-item" data-aos="fade-up" data-aos-duration="600" data-aos-delay="400">
-                    <span class="stat-number">1000+</span>
-                    <span class="stat-label">Trucks Serviced</span>
-                </div>
-                <div class="stat-item" data-aos="fade-up" data-aos-duration="600" data-aos-delay="500">
-                    <span class="stat-number">24/7</span>
-                    <span class="stat-label">Emergency Service</span>
-                </div>
-                <div class="stat-item" data-aos="fade-up" data-aos-duration="600" data-aos-delay="600">
-                    <span class="stat-number">100%</span>
-                    <span class="stat-label">Satisfaction Rate</span>
-                </div>
+        <!-- Review 3 -->
+                           <a style="text-decoration: none;" target="_blank" href="https://maps.app.goo.gl/ULPiVtFybyiTDSxm9">
+
+        <div class="review-card">
+          <div class="review-header">
+            <div class="reviewer-avatar" style="background: brown;">M</div>
+            <div class="reviewer-info">
+              <div class="reviewer-name">Mukesh Simmu</div>
+              <div class="review-meta">
+                <span class="review-stars">★★★★★</span>
+                <span class="review-date">3 month ago</span>
+              </div>
+              <div class="google-user">Google user</div>
             </div>
+          </div>
+          <div class="review-content">
+Very very good mechanic. He is very very knowledgeable and honest person and reasonable price. I always bring my truck here. 110 percent recommended this guy.          </div>
+          <div class="review-footer">
+            <div class="helpful-section">
+              <button class="helpful-btn">👍 Helpful</button>
+              <span>5 people found this helpful</span>
+            </div>
+          </div>
+        </div></a>
+
+        <!-- Review 4 -->
+                                    <a style="text-decoration: none;" target="_blank" href="https://maps.app.goo.gl/zc3t8JSJepLrftgc9">
+
+        <div class="review-card">
+          <div class="review-header">
+            <div class="reviewer-avatar" style="background: darkgreen;">S</div>
+            <div class="reviewer-info">
+              <div class="reviewer-name">Satnam Dhami</div>
+              <div class="review-meta">
+                <span class="review-stars">★★★★★</span>
+                <span class="review-date">6 month ago</span>
+              </div>
+              <div class="google-user">Google user</div>
+            </div>
+          </div>
+          <div class="review-content">
+Great service, Hursh does good professional work. I would definitely recommend this place, specifically for Volvo truck repairs. His whole entire team is well certified and do good work. If I have any emergency repairs, Hursh and his team help immediately and with efficiency while providing discounts on the parts and labor.          </div>
+          <div class="review-footer">
+            <div class="helpful-section">
+              <button class="helpful-btn">👍 Helpful</button>
+              <span>2 people found this helpful</span>
+            </div>
+          </div>
         </div>
-    </section>
+        </a>
+        <!-- Review 5 -->
+                                             <a style="text-decoration: none;" target="_blank" href="https://maps.app.goo.gl/wb5bFmwzNYMJUiDt5">
 
-    <!-- AOS Library Script -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script>
-        // Initialize AOS
-        AOS.init({
-            duration: 800,
-            once: true,
-            offset: 100,
-            easing: 'ease-out-cubic'
-        });
+        <div class="review-card">
+          <div class="review-header">
+            <div class="reviewer-avatar" ><img src="./assets/review2.png"/></div>
+            <div class="reviewer-info">
+              <div class="reviewer-name">Ravi Mandhan</div>
+              <div class="review-meta">
+                <span class="review-stars">★★★★★</span>
+                <span class="review-date">3 month ago</span>
+              </div>
+              <div class="google-user">Google user</div>
+            </div>
+          </div>
+          <div class="review-content">
+GREAT WORK!! I spent thousands of dollars at the dealer and my truck was not fixed. These guys fixed my truck right repaired wiring for good price!!          <div class="review-footer">
+            <div class="helpful-section">
+              <button class="helpful-btn">👍 Helpful</button>
+              <span>2 people found this helpful</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      </a>
+                                                   <a style="text-decoration: none;" target="_blank" href="https://maps.app.goo.gl/sTfXczFkovyZeCp87">
 
-        // Enhanced hover effects for service items
-        document.querySelectorAll('.service-item').forEach(item => {
-            item.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateX(8px)';
-                this.style.color = 'var(--primary-color)';
-            });
-            
-            item.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateX(0)';
-                this.style.color = 'var(--text-dark)';
-            });
-        });
+              <!-- Review 6 -->
+        <div class="review-card">
+          <div class="review-header">
+            <div class="reviewer-avatar" style="background: brown;" >N</div>
+            <div class="reviewer-info">
+              <div class="reviewer-name">Navpreet Singh</div>
+              <div class="review-meta">
+                <span class="review-stars">★★★★★</span>
+                <span class="review-date">6 month ago</span>
+              </div>
+              <div class="google-user">Google user</div>
+            </div>
+          </div>
+          <div class="review-content">
+Very professional and very reasonable fix my truck in timely manner he worked at Volvo dealership and has good knowledge and right tools.            <div class="helpful-section">
+              <button class="helpful-btn">👍 Helpful</button>
+              <span>2 people found this helpful</span>
+            </div>
+          </div>
+        </div>
+        </a>
+      </div>
+    </div>
 
-        // CTA button interaction with enhanced animation
-        document.querySelector('.cta-button').addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            // Add ripple effect
-            const button = this;
-            const ripple = document.createElement('span');
-            const rect = button.getBoundingClientRect();
-            const size = Math.max(rect.width, rect.height);
-            
-            ripple.style.width = ripple.style.height = size + 'px';
-            ripple.style.position = 'absolute';
-            ripple.style.left = (e.clientX - rect.left - size / 2) + 'px';
-            ripple.style.top = (e.clientY - rect.top - size / 2) + 'px';
-            ripple.style.background = 'rgba(255, 255, 255, 0.3)';
-            ripple.style.borderRadius = '50%';
-            ripple.style.transform = 'scale(0)';
-            ripple.style.animation = 'ripple 0.6s linear';
-            ripple.style.pointerEvents = 'none';
-            
-            button.appendChild(ripple);
-            
-            setTimeout(() => {
-                ripple.remove();
-            }, 600);
-            
-            console.log('Contact form triggered');
-            // Add your contact logic here
-        });
-
-        // Add ripple animation keyframes
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes ripple {
-                to {
-                    transform: scale(4);
-                    opacity: 0;
-                }
-            }
-        `;
-        document.head.appendChild(style);
-
-        // Add refresh animation on scroll for service cards
-        const serviceCards = document.querySelectorAll('.service-card');
-        const cardObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        });
-
-        serviceCards.forEach(card => {
-            cardObserver.observe(card);
-        });
-
-        // Add counter animation for stats
-        const animateCounter = (element, target) => {
-            let current = 0;
-            const increment = target / 50;
-            const timer = setInterval(() => {
-                current += increment;
-                if (current >= target) {
-                    element.textContent = target + (element.textContent.includes('+') ? '+' : '') + 
-                                         (element.textContent.includes('%') ? '%' : '') +
-                                         (element.textContent.includes('/') ? '/7' : '');
-                    clearInterval(timer);
-                } else {
-                    element.textContent = Math.floor(current) + (element.textContent.includes('+') ? '+' : '') + 
-                                         (element.textContent.includes('%') ? '%' : '') +
-                                         (element.textContent.includes('/') ? '/7' : '');
-                }
-            }, 40);
-        };
-
-        // Observe stats for counter animation
-        const statsObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const statNumber = entry.target.querySelector('.stat-number');
-                    const text = statNumber.textContent;
-                    let target = parseInt(text);
-                    
-                    if (text.includes('24/7')) {
-                        statNumber.textContent = '24/7';
-                        return;
-                    }
-                    
-                    if (target) {
-                        statNumber.textContent = '0';
-                        setTimeout(() => {
-                            animateCounter(statNumber, target);
-                        }, 200);
-                    }
-                }
-            });
-        }, { threshold: 0.5 });
-
-        document.querySelectorAll('.stat-item').forEach(stat => {
-            statsObserver.observe(stat);
-        });
-    </script>
+   
+  </div>
 </body>
 </html>

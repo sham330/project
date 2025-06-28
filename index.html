@@ -483,8 +483,8 @@
 }
 
 .gear-image {
-  width: clamp(180px, 15vw, 260px);
-  height: clamp(180px, 15vw, 260px);
+  width: clamp(200px, 18vw, 260px);
+  height: clamp(200px, 18vw, 260px);
   border-radius: 50%;
   object-fit: cover;
   position: absolute;
@@ -1036,22 +1036,253 @@
                 transform: translateY(-20px) rotate(180deg);
             }
         }
+        /*Review Section*/
+         .reviews-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    .business-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 32px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid #e8eaed;
+    }
+
+    .business-info {
+      flex: 1;
+    }
+
+    .business-name {
+      font-size: 28px;
+      font-weight: 400;
+      color: #202124;
+      margin-bottom: 8px;
+    }
+
+    .business-rating {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 4px;
+    }
+
+    .rating-number {
+      font-size: 18px;
+      font-weight: 500;
+      color: #202124;
+    }
+
+    .stars {
+      color: #fbbc04;
+      font-size: 16px;
+      letter-spacing: 1px;
+    }
+
+    .review-count {
+      color: #5f6368;
+      font-size: 14px;
+    }
+
+    .google-logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      color: #5f6368;
+    }
+
+    .google-icon {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      position: relative;
+    }
+
+    .google-icon::after {
+      content: 'G';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-weight: bold;
+      font-size: 11px;
+    }
+
+    .reviews-section {
+      margin-bottom: 32px;
+    }
+
+    .section-title-review {
+      font-size: 20px;
+      font-weight: 500;
+      color: #202124;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .reviews-grid {
+      display: grid;
+      gap: 24px;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    }
+
+    .review-card {
+      background: #fff;
+      border: 1px solid #e8eaed;
+      border-radius: 8px;
+      padding: 20px;
+      transition: box-shadow 0.2s ease;
+    }
+
+    .review-card:hover {
+      box-shadow: 0 2px 8px rgba(60,64,67,0.15);
+    }
+
+    .review-header {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 12px;
+      gap: 12px;
+    }
+
+    .reviewer-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #4285f4, #34a853);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 500;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+
+    .reviewer-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .reviewer-name {
+      font-size: 16px;
+      font-weight: 500;
+      color: #202124;
+      margin-bottom: 4px;
+    }
+
+    .review-meta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 4px;
+    }
+
+    .review-stars {
+      color: #fbbc04;
+      font-size: 14px;
+      letter-spacing: 1px;
+    }
+
+    .review-date {
+      color: #5f6368;
+      font-size: 14px;
+    }
+
+    .google-user {
+      color: #5f6368;
+      font-size: 13px;
+    }
+
+    .review-content {
+      font-size: 15px;
+      line-height: 1.5;
+      color: #3c4043;
+      margin-bottom: 16px;
+    }
+
+    .review-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 12px;
+      border-top: 1px solid #f1f3f4;
+    }
+
+    .helpful-section {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 14px;
+      color: #5f6368;
+    }
+
+    .helpful-btn {
+      background: none;
+      border: none;
+      color: #1a73e8;
+      cursor: pointer;
+      font-size: 14px;
+      padding: 4px 8px;
+      border-radius: 4px;
+      transition: background-color 0.2s;
+    }
+
+    .helpful-btn:hover {
+      background-color: #f8f9fa;
+    }
+
+    .powered-by {
+      text-align: center;
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 1px solid #e8eaed;
+      color: #5f6368;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    @media (max-width: 768px) {
+      .business-name {
+        font-size: 24px;
+      }
+      
+      .reviews-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .business-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+      }
+    }
     </style>
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar transparent" id="navbar">
         <div class="nav-container">
-            <a href="#" class="logo">
+            <a href="#navbar" class="logo">
                 <img id="logo-img" src="./assets/blacklogo.png" style="width: 50px; height: 50px;"/>
                 BTC
             </a>
             
             <ul class="nav-menu">
-                <li><a href="#home" class="nav-link">Home</a></li>
                                 <li><a href="#about" class="nav-link">About</a></li>
 
-                <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#service-section" class="nav-link">Services</a></li>
+                                <li><a href="#review" class="nav-link">Reviews</a></li>
+
                 <li><a href="#contact" class="nav-link">Contact</a></li>
                 <li><a href="#quote" class="cta-button">Get Quote</a></li>
             </ul>
@@ -1140,7 +1371,7 @@ We provide expert repair and maintenance services for all types of trucks, with 
     </div>
   </section>
 <!--Service Section-->
-    <section class="services-section">
+    <section class="services-section" id="service-section">
         <div class="floating-elements">
             <div class="floating-element"></div>
             <div class="floating-element"></div>
@@ -1272,6 +1503,208 @@ We provide expert repair and maintenance services for all types of trucks, with 
             
         </div>
     </section>
+    <!--Review Section-->
+    <div class="reviews-container" id="review">
+        <!-- Business Header -->
+        <div class="business-header" data-aos="fade-down" data-aos-duration="800">
+            <div class="business-info">
+                <h1 class="business-name">
+                    <a target="_blank" href="https://www.google.com/maps/place/Brownsburg+Truck+Center/@39.7884826,-86.3061606,19z/data=!4m16!1m7!3m6!1s0x886ca9002a409861:0x53cca8614c8a0af7!2sBrownsburg+Truck+Center!8m2!3d39.7884816!4d-86.3055169!16s%2Fg%2F11vrbvtcr2!3m7!1s0x886ca9002a409861:0x53cca8614c8a0af7!8m2!3d39.7884816!4d-86.3055169!9m1!1b1!16s%2Fg%2F11vrbvtcr2?entry=ttu&g_ep=EgoyMDI1MDYyMy4yIKXMDSoASAFQAw%3D%3D">
+                        Brownsburg Truck Center
+                    </a>
+                </h1>
+                <div class="business-rating">
+                    <span class="rating-number">5.0</span>
+                    <span class="stars">★★★★★</span>
+                    <span class="review-count">(24+ reviews)</span>
+                </div>
+                <div class="google-user">Google reviews</div>
+            </div>
+            <div class="google-logo" data-aos="fade-left" data-aos-delay="200">
+                <svg class="google-icon" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
+                    <path fill="#FFC107" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"></path>
+                    <path fill="#FF3D00" d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z"></path>
+                    <path fill="#4CAF50" d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z"></path>
+                    <path fill="#1976D2" d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z"></path>
+                </svg>
+                <span>Google</span>
+            </div>
+        </div>
+
+        <!-- Reviews Section -->
+        <div class="reviews-section">
+            <h2 class="section-title-review" data-aos="fade-up" data-aos-duration="600">
+                Recent Reviews
+            </h2>
+            
+            <div class="reviews-grid">
+                <!-- Review 1 -->
+                <a style="text-decoration: none; color: inherit;" target="_blank" href="https://maps.app.goo.gl/UEpWmYAwKWn6SvvLA">
+                    <div class="review-card" data-aos="fade-up-scale" data-aos-duration="600" data-aos-delay="100">
+                        <div class="review-header">
+                            <div class="reviewer-avatar" style="background: darkgreen;">C</div>
+                            <div class="reviewer-info">
+                                <div class="reviewer-name">Chicago Bek</div>
+                                <div class="review-meta">
+                                    <span class="review-stars">★★★★★</span>
+                                    <span class="review-date">3 weeks ago</span>
+                                </div>
+                                <div class="google-user">Google user</div>
+                            </div>
+                        </div>
+                        <div class="review-content">
+                            They have experienced mechanics with good prices, and giving warranty for their labor for 90 days and for parts one year. And also they are checking deeply the issues. So I'll recommend for VOLVO riders. Best of luck guys.
+                        </div>
+                        <div class="review-footer">
+                            <div class="helpful-section">
+                                <button class="helpful-btn">👍 Helpful</button>
+                                <span>3 people found this helpful</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Review 2 -->
+                <a style="text-decoration: none; color: inherit;" target="_blank" href="https://maps.app.goo.gl/t36yDF6w3k88cDQA8">
+                    <div class="review-card" data-aos="fade-up-scale" data-aos-duration="600" data-aos-delay="200">
+                        <div class="review-header">
+                            <div class="reviewer-avatar" style="background: #4285f4;">S</div>
+                            <div class="reviewer-info">
+                                <div class="reviewer-name">Sukhraj Singh</div>
+                                <div class="review-meta">
+                                    <span class="review-stars">★★★★★</span>
+                                    <span class="review-date">3 months ago</span>
+                                </div>
+                                <div class="google-user">Google user</div>
+                            </div>
+                        </div>
+                        <div class="review-content">
+                            Harsch is one of best mechanics in Indy because he know what he doing. We been here many time and no complain on his job plus his price is reasonable, he gonna charge you what he did not like other. Thank for your good service Bruh!!!
+                        </div>
+                        <div class="review-footer">
+                            <div class="helpful-section">
+                                <button class="helpful-btn">👍 Helpful</button>
+                                <span>1 person found this helpful</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Review 3 -->
+                <a style="text-decoration: none; color: inherit;" target="_blank" href="https://maps.app.goo.gl/ULPiVtFybyiTDSxm9">
+                    <div class="review-card" data-aos="fade-up-scale" data-aos-duration="600" data-aos-delay="300">
+                        <div class="review-header">
+                            <div class="reviewer-avatar" style="background: brown;">M</div>
+                            <div class="reviewer-info">
+                                <div class="reviewer-name">Mukesh Simmu</div>
+                                <div class="review-meta">
+                                    <span class="review-stars">★★★★★</span>
+                                    <span class="review-date">3 months ago</span>
+                                </div>
+                                <div class="google-user">Google user</div>
+                            </div>
+                        </div>
+                        <div class="review-content">
+                            Very very good mechanic. He is very very knowledgeable and honest person and reasonable price. I always bring my truck here. 110 percent recommended this guy.
+                        </div>
+                        <div class="review-footer">
+                            <div class="helpful-section">
+                                <button class="helpful-btn">👍 Helpful</button>
+                                <span>5 people found this helpful</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Review 4 -->
+                <a style="text-decoration: none; color: inherit;" target="_blank" href="https://maps.app.goo.gl/zc3t8JSJepLrftgc9">
+                    <div class="review-card" data-aos="fade-up-scale" data-aos-duration="600" data-aos-delay="400">
+                        <div class="review-header">
+                            <div class="reviewer-avatar" style="background: darkgreen;">S</div>
+                            <div class="reviewer-info">
+                                <div class="reviewer-name">Satnam Dhami</div>
+                                <div class="review-meta">
+                                    <span class="review-stars">★★★★★</span>
+                                    <span class="review-date">6 months ago</span>
+                                </div>
+                                <div class="google-user">Google user</div>
+                            </div>
+                        </div>
+                        <div class="review-content">
+                            Great service, Hursh does good professional work. I would definitely recommend this place, specifically for Volvo truck repairs. His whole entire team is well certified and do good work. If I have any emergency repairs, Hursh and his team help immediately and with efficiency while providing discounts on the parts and labor.
+                        </div>
+                        <div class="review-footer">
+                            <div class="helpful-section">
+                                <button class="helpful-btn">👍 Helpful</button>
+                                <span>2 people found this helpful</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Review 5 -->
+                <a style="text-decoration: none; color: inherit;" target="_blank" href="https://maps.app.goo.gl/wb5bFmwzNYMJUiDt5">
+                    <div class="review-card" data-aos="fade-up-scale" data-aos-duration="600" data-aos-delay="500">
+                        <div class="review-header">
+                            <div class="reviewer-avatar" style="background: #34a853;">R</div>
+                            <div class="reviewer-info">
+                                <div class="reviewer-name">Ravi Mandhan</div>
+                                <div class="review-meta">
+                                    <span class="review-stars">★★★★★</span>
+                                    <span class="review-date">3 months ago</span>
+                                </div>
+                                <div class="google-user">Google user</div>
+                            </div>
+                        </div>
+                        <div class="review-content">
+                            GREAT WORK!! I spent thousands of dollars at the dealer and my truck was not fixed. These guys fixed my truck right repaired wiring for good price!!
+                        </div>
+                        <div class="review-footer">
+                            <div class="helpful-section">
+                                <button class="helpful-btn">👍 Helpful</button>
+                                <span>2 people found this helpful</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Review 6 -->
+                <a style="text-decoration: none; color: inherit;" target="_blank" href="https://maps.app.goo.gl/sTfXczFkovyZeCp87">
+                    <div class="review-card" data-aos="fade-up-scale" data-aos-duration="600" data-aos-delay="600">
+                        <div class="review-header">
+                            <div class="reviewer-avatar" style="background: brown;">N</div>
+                            <div class="reviewer-info">
+                                <div class="reviewer-name">Navpreet Singh</div>
+                                <div class="review-meta">
+                                    <span class="review-stars">★★★★★</span>
+                                    <span class="review-date">6 months ago</span>
+                                </div>
+                                <div class="google-user">Google user</div>
+                            </div>
+                        </div>
+                        <div class="review-content">
+                            Very professional and very reasonable fix my truck in timely manner he worked at Volvo dealership and has good knowledge and right tools.
+                        </div>
+                        <div class="review-footer">
+                            <div class="helpful-section">
+                                <button class="helpful-btn">👍 Helpful</button>
+                                <span>2 people found this helpful</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+ <div style="padding-top: 20px; padding-bottom: 20px; display: flex; align-items: center; justify-content: center;" data-aos="fade-up" data-aos-duration="800" data-aos-delay="700">
+            <a href="https://www.google.com/maps/place/Brownsburg+Truck+Center/@39.7884826,-86.3061606,19z/data=!4m16!1m7!3m6!1s0x886ca9002a409861:0x53cca8614c8a0af7!2sBrownsburg+Truck+Center!8m2!3d39.7884816!4d-86.3055169!16s%2Fg%2F11vrbvtcr2!3m7!1s0x886ca9002a409861:0x53cca8614c8a0af7!8m2!3d39.7884816!4d-86.3055169!9m1!1b1!16s%2Fg%2F11vrbvtcr2?entry=ttu&g_ep=EgoyMDI1MDYyMy4yIKXMDSoASAFQAw%3D%3D" class="cta-button-service">
+                See all Reviews & Add a Review
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </a>
+        </div>
+    </div> 
+   
 
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
