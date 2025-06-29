@@ -1,437 +1,522 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Google Reviews</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - TruckFix Pro</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2C228C;
+            --secondary-color: #f5f5f5;
+            --accent-color: #f57c1f;
+            --text-dark: #2C228C;
+            --text-light: #938BFF;
+            --white: #ffffff;
+            --gradient: linear-gradient(135deg, #000000 0%, #f57c1f 100%);
+            --medium-gray: #64748b;
+            --dark-gray: #334155;
+            --border-light: #e2e8f0;
+            --shadow-light: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+            --shadow-medium: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-large: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
 
-    body {
-      font-family: 'Google Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background: #fff;
-      color: #3c4043;
-      line-height: 1.4;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    .reviews-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 40px 20px;
-    }
+        .body-contact {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-gray);
+            background: var(--secondary-color);
+            overflow-x: hidden;
+        }
 
-    .business-header {
-      display: flex;
-      align-items: center;
-      margin-bottom: 32px;
-      padding-bottom: 24px;
-      border-bottom: 1px solid #e8eaed;
-    }
+        .header-section-contact {
+            padding: 60px 0 40px;
+            position: relative;
+        }
 
-    .business-info {
-      flex: 1;
-    }
+       
 
-    .business-name {
-      font-size: 28px;
-      font-weight: 400;
-      color: #202124;
-      margin-bottom: 8px;
-    }
+        .container-contact {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            position: relative;
+            z-index: 1;
+        }
 
-    .business-rating {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 4px;
-    }
+        .header-content-contact {
+            text-align: center;
+            color: var(--primary-color);
+        }
 
-    .rating-number {
-      font-size: 18px;
-      font-weight: 500;
-      color: #202124;
-    }
+        .header-title-contact {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            letter-spacing: -0.025em;
+        }
 
-    .stars {
-      color: #fbbc04;
-      font-size: 16px;
-      letter-spacing: 1px;
-    }
+        .header-subtitle-contact {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+            font-weight: 400;
+        }
 
-    .review-count {
-      color: #5f6368;
-      font-size: 14px;
-    }
+        .main-section-contact {
+            padding: 80px 0;
+            position: relative;
+            margin-top: -40px;
+        }
 
-    .google-logo {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 14px;
-      color: #5f6368;
-    }
+        .contact-grid-contact {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
 
-    .google-icon {
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      position: relative;
-    }
+        .contact-card-contact {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: var(--shadow-large);
+            border: 1px solid var(--border-light);
+            position: relative;
+            overflow: hidden;
+        }
 
-    .google-icon::after {
-      content: 'G';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: white;
-      font-weight: bold;
-      font-size: 11px;
-    }
+        .contact-card-contact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-color), var(--primary-color));
+        }
 
-    .reviews-section {
-      margin-bottom: 32px;
-    }
+        .card-header-contact {
+            margin-bottom: 32px;
+        }
 
-    .section-title {
-      font-size: 20px;
-      font-weight: 500;
-      color: #202124;
-      margin-bottom: 24px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
+        .card-title-contact {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 8px;
+        }
 
-    .reviews-grid {
-      display: grid;
-      gap: 24px;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    }
+        .card-description-contact {
+            color: var(--medium-gray);
+            font-size: 1rem;
+        }
 
-    .review-card {
-      background: #fff;
-      border: 1px solid #e8eaed;
-      border-radius: 8px;
-      padding: 20px;
-      transition: box-shadow 0.2s ease;
-    }
+        .contact-list-contact {
+            list-style: none;
+        }
 
-    .review-card:hover {
-      box-shadow: 0 2px 8px rgba(60,64,67,0.15);
-    }
+        .contact-item-contact {
+            display: flex;
+            align-items: flex-start;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border-light);
+            transition: all 0.2s ease;
+        }
 
-    .review-header {
-      display: flex;
-      align-items: flex-start;
-      margin-bottom: 12px;
-      gap: 12px;
-    }
+        .contact-item-contact:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
 
-    .reviewer-avatar {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #4285f4, #34a853);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-weight: 500;
-      font-size: 16px;
-      flex-shrink: 0;
-    }
+        .contact-item-contact:hover {
+            transform: translateX(4px);
+        }
 
-    .reviewer-info {
-      flex: 1;
-      min-width: 0;
-    }
+        .contact-icon-contact {
+            width: 48px;
+            height: 48px;
+            background: var(--secondary-color);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 16px;
+            flex-shrink: 0;
+            border: 1px solid var(--border-light);
+        }
 
-    .reviewer-name {
-      font-size: 16px;
-      font-weight: 500;
-      color: #202124;
-      margin-bottom: 4px;
-    }
+        .contact-icon-contact i {
+            font-size: 1.1rem;
+            color: var(--accent-color);
+        }
 
-    .review-meta {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 4px;
-    }
+        .contact-content-contact h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--dark-gray);
+            margin-bottom: 4px;
+        }
 
-    .review-stars {
-      color: #fbbc04;
-      font-size: 14px;
-      letter-spacing: 1px;
-    }
+        .contact-content-contact p {
+            font-size: 0.9rem;
+            color: var(--medium-gray);
+            line-height: 1.5;
+        }
 
-    .review-date {
-      color: #5f6368;
-      font-size: 14px;
-    }
+        .contact-content-contact a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
 
-    .google-user {
-      color: #5f6368;
-      font-size: 13px;
-    }
+        .contact-content-contact a:hover {
+            color: var(--accent-color);
+        }
 
-    .review-content {
-      font-size: 15px;
-      line-height: 1.5;
-      color: #3c4043;
-      margin-bottom: 16px;
-    }
+        .emergency-section-contact {
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 32px;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 32px;
+            position: relative;
+            overflow: hidden;
+        }
 
-    .review-footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding-top: 12px;
-      border-top: 1px solid #f1f3f4;
-    }
+        .emergency-section-contact::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 2px,
+                rgba(255,255,255,0.05) 2px,
+                rgba(255,255,255,0.05) 4px
+            );
+            animation: shimmer 8s linear infinite;
+        }
 
-    .helpful-section {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      font-size: 14px;
-      color: #5f6368;
-    }
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) translateY(-100%); }
+            100% { transform: translateX(100%) translateY(100%); }
+        }
 
-    .helpful-btn {
-      background: none;
-      border: none;
-      color: #1a73e8;
-      cursor: pointer;
-      font-size: 14px;
-      padding: 4px 8px;
-      border-radius: 4px;
-      transition: background-color 0.2s;
-    }
+        .emergency-content-contact {
+            position: relative;
+            z-index: 1;
+        }
 
-    .helpful-btn:hover {
-      background-color: #f8f9fa;
-    }
+        .emergency-title-contact {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
 
-    .powered-by {
-      text-align: center;
-      margin-top: 32px;
-      padding-top: 24px;
-      border-top: 1px solid #e8eaed;
-      color: #5f6368;
-      font-size: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-    }
+        .emergency-phone-contact {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 8px;
+            transition: transform 0.2s ease;
+        }
 
-    @media (max-width: 768px) {
-      .business-name {
-        font-size: 24px;
-      }
-      
-      .reviews-grid {
-        grid-template-columns: 1fr;
-      }
-      
-      .business-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 16px;
-      }
-    }
-  </style>
+        .emergency-phone-contact:hover {
+            transform: scale(1.05);
+        }
+
+        .emergency-text-contact {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .action-buttons-contact {
+            display: flex;
+            gap: 16px;
+            margin-top: 32px;
+        }
+
+        .btn-contact {
+            flex: 1;
+            padding: 16px 24px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            text-align: center;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary-contact {
+            background: var(--accent-color);
+            color: var(--white);
+            border: 2px solid var(--accent-color);
+        }
+
+        .btn-primary-contact:hover {
+            background: #dc2626;
+            border-color: #dc2626;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .btn-secondary-contact {
+            background: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-secondary-contact:hover {
+            background: var(--primary-color);
+            color: var(--white);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .map-section-contact {
+            background: var(--white);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow-large);
+            border: 1px solid var(--border-light);
+            position: relative;
+        }
+
+        .map-header-contact {
+            padding: 32px 32px 24px;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .map-title-contact {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 8px;
+        }
+
+        .map-description-contact {
+            color: var(--medium-gray);
+            font-size: 1rem;
+        }
+
+        .map-container-contact {
+            position: relative;
+            height: 400px;
+        }
+
+        .map-frame-contact {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-title-contact {
+                font-size: 2.25rem;
+            }
+
+            .header-subtitle-contact {
+                font-size: 1.125rem;
+            }
+
+            .contact-grid-contact {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .contact-card-contact {
+                padding: 32px 24px;
+            }
+
+            .main-section-contact {
+                padding: 60px 0;
+            }
+
+            .action-buttons-contact {
+                flex-direction: column;
+            }
+
+            .contact-item-contact {
+                flex-direction: column;
+                text-align: center;
+                align-items: center;
+            }
+
+            .contact-icon-contact {
+                margin-right: 0;
+                margin-bottom: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container-contact {
+                padding: 0 16px;
+            }
+
+            .header-section-contact {
+                padding: 40px 0 20px;
+            }
+
+            .contact-card-contact {
+                padding: 24px 20px;
+            }
+
+            .map-header-contact {
+                padding: 24px 20px 16px;
+            }
+        }
+    </style>
 </head>
-<body>
-  <div class="reviews-container">
-    <!-- Business Header -->
-    <div class="business-header">
-      <div class="business-info">
-        <h1 class="business-name"><a style="color: #000;" target="_blank" href="https://www.google.com/maps/place/Brownsburg+Truck+Center/@39.7884826,-86.3061606,19z/data=!4m16!1m7!3m6!1s0x886ca9002a409861:0x53cca8614c8a0af7!2sBrownsburg+Truck+Center!8m2!3d39.7884816!4d-86.3055169!16s%2Fg%2F11vrbvtcr2!3m7!1s0x886ca9002a409861:0x53cca8614c8a0af7!8m2!3d39.7884816!4d-86.3055169!9m1!1b1!16s%2Fg%2F11vrbvtcr2?entry=ttu&g_ep=EgoyMDI1MDYyMy4yIKXMDSoASAFQAw%3D%3D">Brownsburg Truck Center</a>
-</h1>
-        <div class="business-rating">
-          <span class="rating-number">5.0</span>
-          <span class="stars">★★★★★</span>
-          <span class="review-count">(24+ reviews)</span>
+<body class="body-contact">
+    <div class="header-section-contact">
+        <div class="container-contact">
+            <div class="header-content-contact" data-aos="fade-up">
+                <h1 class="header-title-contact">Contact TruckFix Pro</h1>
+                <p class="header-subtitle-contact">Professional truck repair and maintenance services. We're committed to keeping your fleet operational and profitable.</p>
+            </div>
         </div>
-        <div class="google-user">Google reviews</div>
-      </div>
-      <div class="google-logo">
-<svg class="google-icon" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
-<path fill="#FFC107" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"></path><path fill="#FF3D00" d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z"></path><path fill="#4CAF50" d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z"></path><path fill="#1976D2" d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z"></path>
-</svg>           <span>Google</span>
-      </div>
+    </div>
+    <a href="https://app.fullbay.com/PIIFRU"><img src="https://app.fullbay.com/web/default/en/images/request_a_repair.png" border="0"></a>
+
+    <div class="main-section-contact">
+        <div class="container-contact">
+            <div class="contact-grid-contact">
+                <div class="contact-card-contact" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card-header-contact">
+                        <h2 class="card-title-contact">Get in Touch</h2>
+                        <p class="card-description-contact">Multiple ways to reach our expert team</p>
+                    </div>
+
+                    <ul class="contact-list-contact">
+                        <li class="contact-item-contact" data-aos="fade-right" data-aos-delay="200">
+                            <div class="contact-icon-contact">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-content-contact">
+                                <h4>Service Location</h4>
+                                <p>1245 Industrial Drive<br>
+                                Truck City, TC 12345<br>
+                                United States</p>
+                            </div>
+                        </li>
+
+                        <li class="contact-item-contact" data-aos="fade-right" data-aos-delay="250">
+                            <div class="contact-icon-contact">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-content-contact">
+                                <h4>Phone Number</h4>
+                                <p><a href="tel:+15551234567">(555) 123-4567</a></p>
+                            </div>
+                        </li>
+
+                        <li class="contact-item-contact" data-aos="fade-right" data-aos-delay="300">
+                            <div class="contact-icon-contact">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-content-contact">
+                                <h4>Email Contact</h4>
+                                <p><a href="mailto:info@truckfixpro.com">info@truckfixpro.com</a></p>
+                            </div>
+                        </li>
+
+                        <li class="contact-item-contact" data-aos="fade-right" data-aos-delay="350">
+                            <div class="contact-icon-contact">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contact-content-contact">
+                                <h4>Business Hours</h4>
+                                <p>Mon-Fri: 7:00 AM - 7:00 PM<br>
+                                Saturday: 8:00 AM - 5:00 PM<br>
+                                Sunday: Closed</p>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <div class="action-buttons-contact" data-aos="fade-up" data-aos-delay="450">
+                        <a href="tel:+15551234567" class="btn-contact btn-primary-contact">
+                            <i class="fas fa-phone"></i>
+                            Call Now
+                        </a>
+                        <a href="mailto:info@truckfixpro.com" class="btn-contact btn-secondary-contact">
+                            <i class="fas fa-envelope"></i>
+                            Send Email
+                        </a>
+                    </div>
+                </div>
+
+                <div class="map-section-contact" data-aos="fade-up" data-aos-delay="200">
+                    <div class="map-header-contact">
+                        <h2 class="map-title-contact">Our Location</h2>
+                        <p class="map-description-contact">Strategically located in the industrial district for easy fleet access</p>
+                    </div>
+                    
+                    <div class="map-container-contact">
+                        <iframe 
+                            class="map-frame-contact"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3048.4557!2d-96.7969879!3d32.7766642!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864c20c77d3b5c2d%3A0x4d7b1c1234567890!2sIndustrial%20Drive%2C%20Dallas%2C%20TX!5e0!3m2!1sen!2sus!4v1234567890"
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <!-- Reviews Section -->
-    <div class="reviews-section">
-      <h2 class="section-title">
-        Recent reviews
-      </h2>
-      
-      <div class="reviews-grid">
-        <!-- Review 1 -->
-         <a style="text-decoration: none;" target="_blank" href="https://maps.app.goo.gl/UEpWmYAwKWn6SvvLA">
-        <div class="review-card">
-          <div class="review-header">
-            <div class="reviewer-avatar" style="background: darkgreen;">C</div>
-            <div class="reviewer-info">
-              <div class="reviewer-name">Chicago Bek</div>
-              <div class="review-meta">
-                <span class="review-stars">★★★★★</span>
-                <span class="review-date">3 weeks ago</span>
-              </div>
-              <div class="google-user">Google user</div>
-            </div>
-          </div>
-          <div class="review-content">
-They have a experience Mechanics with Good prices, and giving Warranty for his Labor for 90 days and for parts one year. And also they are checking deeply the issues.
-So I’ll recommend for VOLVO Riders.
-Best of luck Guys.          </div>
-          <div class="review-footer">
-            <div class="helpful-section">
-              <button class="helpful-btn">👍 Helpful</button>
-              <span>3 people found this helpful</span>
-            </div>
-          </div>
-        </div>
-        </a>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 600,
+            easing: 'ease-out-cubic',
+            once: true,
+            offset: 50,
+            delay: 100
+        });
 
-        <!-- Review 2 -->
-                  <a style="text-decoration: none;" target="_blank" href="https://maps.app.goo.gl/t36yDF6w3k88cDQA8">
-
-        <div class="review-card">
-          <div class="review-header">
-            <div class="reviewer-avatar"><img src="./assets/review1.png"/></div>
-            <div class="reviewer-info">
-              <div class="reviewer-name">Sukhraj Singh</div>
-              <div class="review-meta">
-                <span class="review-stars">★★★★★</span>
-                <span class="review-date">3 months ago</span>
-              </div>
-              <div class="google-user">Google user</div>
-            </div>
-          </div>
-          <div class="review-content">
-Harsch is one of best mechanics in Indy because he know what he doing. We been here many time and no complain on his job plus his price is reasonable, he gonna charge you what he did not like other. Thank for your good service Bruh!!!          </div>
-          <div class="review-footer">
-            <div class="helpful-section">
-              <button class="helpful-btn">👍 Helpful</button>
-              <span>1 person found this helpful</span>
-            </div>
-          </div>
-        </div>
-        </a>
-
-        <!-- Review 3 -->
-                           <a style="text-decoration: none;" target="_blank" href="https://maps.app.goo.gl/ULPiVtFybyiTDSxm9">
-
-        <div class="review-card">
-          <div class="review-header">
-            <div class="reviewer-avatar" style="background: brown;">M</div>
-            <div class="reviewer-info">
-              <div class="reviewer-name">Mukesh Simmu</div>
-              <div class="review-meta">
-                <span class="review-stars">★★★★★</span>
-                <span class="review-date">3 month ago</span>
-              </div>
-              <div class="google-user">Google user</div>
-            </div>
-          </div>
-          <div class="review-content">
-Very very good mechanic. He is very very knowledgeable and honest person and reasonable price. I always bring my truck here. 110 percent recommended this guy.          </div>
-          <div class="review-footer">
-            <div class="helpful-section">
-              <button class="helpful-btn">👍 Helpful</button>
-              <span>5 people found this helpful</span>
-            </div>
-          </div>
-        </div></a>
-
-        <!-- Review 4 -->
-                                    <a style="text-decoration: none;" target="_blank" href="https://maps.app.goo.gl/zc3t8JSJepLrftgc9">
-
-        <div class="review-card">
-          <div class="review-header">
-            <div class="reviewer-avatar" style="background: darkgreen;">S</div>
-            <div class="reviewer-info">
-              <div class="reviewer-name">Satnam Dhami</div>
-              <div class="review-meta">
-                <span class="review-stars">★★★★★</span>
-                <span class="review-date">6 month ago</span>
-              </div>
-              <div class="google-user">Google user</div>
-            </div>
-          </div>
-          <div class="review-content">
-Great service, Hursh does good professional work. I would definitely recommend this place, specifically for Volvo truck repairs. His whole entire team is well certified and do good work. If I have any emergency repairs, Hursh and his team help immediately and with efficiency while providing discounts on the parts and labor.          </div>
-          <div class="review-footer">
-            <div class="helpful-section">
-              <button class="helpful-btn">👍 Helpful</button>
-              <span>2 people found this helpful</span>
-            </div>
-          </div>
-        </div>
-        </a>
-        <!-- Review 5 -->
-                                             <a style="text-decoration: none;" target="_blank" href="https://maps.app.goo.gl/wb5bFmwzNYMJUiDt5">
-
-        <div class="review-card">
-          <div class="review-header">
-            <div class="reviewer-avatar" ><img src="./assets/review2.png"/></div>
-            <div class="reviewer-info">
-              <div class="reviewer-name">Ravi Mandhan</div>
-              <div class="review-meta">
-                <span class="review-stars">★★★★★</span>
-                <span class="review-date">3 month ago</span>
-              </div>
-              <div class="google-user">Google user</div>
-            </div>
-          </div>
-          <div class="review-content">
-GREAT WORK!! I spent thousands of dollars at the dealer and my truck was not fixed. These guys fixed my truck right repaired wiring for good price!!          <div class="review-footer">
-            <div class="helpful-section">
-              <button class="helpful-btn">👍 Helpful</button>
-              <span>2 people found this helpful</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      </a>
-                                                   <a style="text-decoration: none;" target="_blank" href="https://maps.app.goo.gl/sTfXczFkovyZeCp87">
-
-              <!-- Review 6 -->
-        <div class="review-card">
-          <div class="review-header">
-            <div class="reviewer-avatar" style="background: brown;" >N</div>
-            <div class="reviewer-info">
-              <div class="reviewer-name">Navpreet Singh</div>
-              <div class="review-meta">
-                <span class="review-stars">★★★★★</span>
-                <span class="review-date">6 month ago</span>
-              </div>
-              <div class="google-user">Google user</div>
-            </div>
-          </div>
-          <div class="review-content">
-Very professional and very reasonable fix my truck in timely manner he worked at Volvo dealership and has good knowledge and right tools.            <div class="helpful-section">
-              <button class="helpful-btn">👍 Helpful</button>
-              <span>2 people found this helpful</span>
-            </div>
-          </div>
-        </div>
-        </a>
-      </div>
-    </div>
-
-   
-  </div>
+        // Add subtle hover effects for better interactivity
+        document.querySelectorAll('.contact-item-contact').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.backgroundColor = 'var(--secondary-color)';
+                this.style.borderRadius = '8px';
+                this.style.margin = '0 -16px';
+                this.style.padding = '20px 16px';
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                this.style.backgroundColor = 'transparent';
+                this.style.borderRadius = '0';
+                this.style.margin = '0';
+                this.style.padding = '20px 0';
+            });
+        });
+    </script>
 </body>
 </html>

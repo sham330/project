@@ -38,6 +38,65 @@
             color: var(--text-dark);
             overflow-x: hidden;
         }
+        /*Loader*/
+        :root {
+  --primary-color: #2C228C;
+  --secondary-color: #f5f5f5;
+  --accent-color: #f57c1f;
+  --text-dark: #2C228C;
+  --text-light: #938BFF;
+  --white: #ffffff;
+  --gradient: linear-gradient(135deg, #000000 0%, #f57c1f 100%);
+}
+
+#page-loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--white);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: opacity 0.5s ease, visibility 0.5s;
+}
+
+.loader-icon {
+  font-size: 4rem;
+  color: var(--accent-color);
+  animation: spinWrench 2s linear infinite;
+}
+
+.loader-text {
+  margin-top: 1.5rem;
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  font-weight: bold;
+  animation: fadeIn 2s ease-in-out infinite;
+}
+
+/* Animations */
+@keyframes spinWrench {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes fadeIn {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 1; }
+}
+
+/* Fade-out class */
+.loaded #page-loader {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+
 
         /* Navbar Styles */
         .navbar {
@@ -672,6 +731,51 @@
     box-shadow: none;
   }
 }
+/*Ad section*/
+ .Ad-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem;
+  background-color: var(--white); /* Light background for clean look */
+}
+
+.Ad-column {
+  flex: 1 1 300px;
+  max-width: 400px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.Ad-column img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.Ad-column:hover {
+  transform: translateY(-5px);
+}
+
+.Ad-column img:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+@media (max-width: 500px) {
+  .Ad-section {
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .Ad-column {
+    max-width: 100%;
+  }
+}
+
 
     /*Service Section*/
      .services-section {
@@ -1266,9 +1370,415 @@
         gap: 16px;
       }
     }
+
+    /*Contact Section*/
+     .header-section-contact {
+            padding: 60px 0 40px;
+            position: relative;
+        }
+
+       
+
+        .container-contact {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header-content-contact {
+            text-align: center;
+            color: var(--primary-color);
+        }
+
+        .header-title-contact {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            letter-spacing: -0.025em;
+        }
+
+        .header-subtitle-contact {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+            font-weight: 400;
+        }
+
+        .main-section-contact {
+            padding: 80px 0;
+            position: relative;
+            margin-top: -40px;
+        }
+
+        .contact-grid-contact {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .contact-card-contact {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: var(--shadow-large);
+            border: 1px solid var(--border-light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-card-contact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-color), var(--primary-color));
+        }
+
+        .card-header-contact {
+            margin-bottom: 32px;
+        }
+
+        .card-title-contact {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 8px;
+        }
+
+        .card-description-contact {
+            color: var(--medium-gray);
+            font-size: 1rem;
+        }
+
+        .contact-list-contact {
+            list-style: none;
+        }
+
+        .contact-item-contact {
+            display: flex;
+            align-items: flex-start;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border-light);
+            transition: all 0.2s ease;
+        }
+
+        .contact-item-contact:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .contact-item-contact:hover {
+            transform: translateX(4px);
+        }
+
+        .contact-icon-contact {
+            width: 48px;
+            height: 48px;
+            background: var(--secondary-color);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 16px;
+            flex-shrink: 0;
+            border: 1px solid var(--border-light);
+        }
+
+        .contact-icon-contact i {
+            font-size: 1.1rem;
+            color: var(--accent-color);
+        }
+
+        .contact-content-contact h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--dark-gray);
+            margin-bottom: 4px;
+        }
+
+        .contact-content-contact p {
+            font-size: 0.9rem;
+            color: var(--medium-gray);
+            line-height: 1.5;
+        }
+
+        .contact-content-contact a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .contact-content-contact a:hover {
+            color: var(--accent-color);
+        }
+
+        .emergency-section-contact {
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 32px;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 32px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .emergency-section-contact::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 2px,
+                rgba(255,255,255,0.05) 2px,
+                rgba(255,255,255,0.05) 4px
+            );
+            animation: shimmer 8s linear infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) translateY(-100%); }
+            100% { transform: translateX(100%) translateY(100%); }
+        }
+
+        .emergency-content-contact {
+            position: relative;
+            z-index: 1;
+        }
+
+        .emergency-title-contact {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .emergency-phone-contact {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 8px;
+            transition: transform 0.2s ease;
+        }
+
+        .emergency-phone-contact:hover {
+            transform: scale(1.05);
+        }
+
+        .emergency-text-contact {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .action-buttons-contact {
+            display: flex;
+            gap: 16px;
+            margin-top: 32px;
+        }
+
+        .btn-contact {
+            flex: 1;
+            padding: 16px 24px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            text-align: center;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary-contact {
+            background: var(--accent-color);
+            color: var(--white);
+            border: 2px solid var(--accent-color);
+        }
+
+        .btn-primary-contact:hover {
+            background: var(--primary-color);
+            color: var(--white);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-medium);
+                        border: 2px solid var(--white);
+
+        }
+
+        .btn-secondary-contact {
+            background: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-secondary-contact:hover {
+            background: var(--primary-color);
+            color: var(--white);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .map-section-contact {
+            background: var(--white);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow-large);
+            border: 1px solid var(--border-light);
+            position: relative;
+        }
+
+        .map-header-contact {
+            padding: 32px 32px 24px;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .map-title-contact {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 8px;
+        }
+
+        .map-description-contact {
+            color: var(--medium-gray);
+            font-size: 1rem;
+        }
+
+        .map-container-contact {
+            position: relative;
+            height: 400px;
+        }
+
+        .map-frame-contact {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-title-contact {
+                font-size: 2.25rem;
+            }
+
+            .header-subtitle-contact {
+                font-size: 1.125rem;
+            }
+
+            .contact-grid-contact {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .contact-card-contact {
+                padding: 32px 24px;
+            }
+
+            .main-section-contact {
+                padding: 60px 0;
+            }
+
+            .action-buttons-contact {
+                flex-direction: column;
+            }
+
+            .contact-item-contact {
+                flex-direction: column;
+                text-align: center;
+                align-items: center;
+            }
+
+            .contact-icon-contact {
+                margin-right: 0;
+                margin-bottom: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container-contact {
+                padding: 0 16px;
+            }
+
+            .header-section-contact {
+                padding: 40px 0 20px;
+            }
+
+            .contact-card-contact {
+                padding: 24px 20px;
+            }
+
+            .map-header-contact {
+                padding: 24px 20px 16px;
+            }
+        }
+        /*Scroll to Top*/
+        #scrollToTop {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  background: var(--accent-color);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.7rem;
+  border-radius: 50%;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  z-index: 1000;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  opacity: 0;
+  pointer-events: none;
+}
+
+#scrollToTop.show {
+  opacity: 1;
+  pointer-events: all;
+}
+
+#scrollToTop:hover {
+  transform: scale(1.1);
+}
+
+/* Rotating on scroll effect */
+.rotating {
+  animation: rotateGear 1s linear infinite;
+}
+
+@keyframes rotateGear {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
     </style>
 </head>
 <body>
+    <!--Loader-->
+    <div id="page-loader">
+  <div class="loader-icon">
+    <i class="fas fa-wrench"></i>
+  </div>
+  <h1 class="loader-text">Gearing Up for the Road...</h1>
+</div>
     <!-- Navigation -->
     <nav class="navbar transparent" id="navbar">
         <div class="nav-container">
@@ -1298,10 +1808,11 @@
                 <i class="fas fa-times"></i>
             </button>
             <ul class="mobile-nav-links">
-                <li><a href="#home">Home</a></li>
                                 <li><a href="#about">About</a></li>
 
-                <li><a href="#services">Services</a></li>
+                <li><a href="#service-section">Services</a></li>
+                                                <li><a href="#review" class="nav-link">Reviews</a></li>
+
                 <li><a href="#contact">Contact</a></li>
                 <li><a href="#quote" class="cta-button">Get Quote</a></li>
             </ul>
@@ -1324,11 +1835,11 @@
                 we provide industry-leading service to keep your fleet running smoothly and efficiently.
             </p>
             <div class="hero-buttons">
-                <a href="#services" class="btn-primary">
+                <a href="#service-section" class="btn-primary">
                     <i class="fas fa-tools"></i>
                     Our Services
                 </a>
-                <a href="#contact" class="btn-secondary">
+                <a href="tel:+ (463) 900 1997" class="btn-secondary">
                     <i class="fas fa-phone"></i>
                     Emergency Call
                 </a>
@@ -1369,6 +1880,23 @@ We provide expert repair and maintenance services for all types of trucks, with 
       <i class="fas fa-cog gear-icon"></i>
       <img src="./assets/about.jpg" alt="Service Image" class="gear-image">
     </div>
+  </section>
+
+  <!--Ad section-->
+   <section class="Ad-section">
+
+    <!-- Column 1 -->
+    <div class="Ad-column">
+<a href="https://app.fullbay.com/PIIFRU"><img src="https://app.fullbay.com/web/default/en/images/request_a_repair.png" border="0"></a>      
+    </div>
+
+    <!-- Column 2 -->
+    <div class="Ad-column">
+      <a href="https://www.mysynchrony.com/mmc/CR230726046" target="_blank" rel="noopener noreferrer">
+                <img src="./assets/syf_cc-0297_-_marketing_asset_repository_-_sycc_generic_002.webp" alt="Flexible financing available through Synchrony">
+            </a>
+    </div>
+
   </section>
 <!--Service Section-->
     <section class="services-section" id="service-section">
@@ -1704,7 +2232,110 @@ We provide expert repair and maintenance services for all types of trucks, with 
             </a>
         </div>
     </div> 
+    <!--Contact Section-->
    
+<div class="header-section-contact" id="contact">
+        <div class="container-contact">
+            <div class="header-content-contact" data-aos="fade-up">
+                <h1 class="header-title-contact">Contact Brownsburg Truck Center
+</h1>
+                <p class="header-subtitle-contact">Specialized Volvo truck repair and maintenance services — dedicated to keeping your fleet running reliably, efficiently, and profitably.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-section-contact">
+        <div class="container-contact">
+            <div class="contact-grid-contact">
+                <div class="contact-card-contact" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card-header-contact">
+                        <h2 class="card-title-contact">Get in Touch</h2>
+                        <p class="card-description-contact">Multiple ways to reach our expert team</p>
+                    </div>
+
+                    <ul class="contact-list-contact">
+                        <li class="contact-item-contact" data-aos="fade-right" data-aos-delay="200">
+                            <div class="contact-icon-contact">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-content-contact">
+                                <h4>Service Location</h4>
+                                <p>8230 Country Club Pl,<br>
+                                Indianapolis,<br>
+                                IN ,United States</p>
+                            </div>
+                        </li>
+
+                        <li class="contact-item-contact" data-aos="fade-right" data-aos-delay="250">
+                            <div class="contact-icon-contact">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-content-contact">
+                                <h4>Phone Number</h4>
+                                <p><a href="tel:+ (463) 900 1997"> (463) 900 1997</a></p>
+                                                                <p>Fax&nbsp;<a href="tel:+(888) 209 6733">(888) 209 6733</a></p>
+
+                            </div>
+                        </li>
+
+                        <li class="contact-item-contact" data-aos="fade-right" data-aos-delay="300">
+                            <div class="contact-icon-contact">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-content-contact">
+                                <h4>Email Contact</h4>
+                                <p><a href="mailto:info@truckfixpro.com">info@truck.com</a></p>
+                            </div>
+                        </li>
+
+                        <li class="contact-item-contact" data-aos="fade-right" data-aos-delay="350">
+                            <div class="contact-icon-contact">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contact-content-contact">
+                                <h4>Business Hours</h4>
+                                <p>Mon-Fri: 9:00 AM - 9:00 PM<br>
+                                Saturday: 10:00 AM - 4:00 PM<br>
+                                Sunday: Closed</p>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <div class="action-buttons-contact" data-aos="fade-up" data-aos-delay="450">
+                        <a href="tel:+(463) 900 1997" class="btn-contact btn-primary-contact">
+                            <i class="fas fa-phone"></i>
+                            Call Now
+                        </a>
+                        <a href="mailto:info@truckfixpro.com" class="btn-contact btn-secondary-contact">
+                            <i class="fas fa-envelope"></i>
+                            Send Email
+                        </a>
+                    </div>
+                </div>
+
+                <div class="map-section-contact" data-aos="fade-up" data-aos-delay="200">
+                    <div class="map-header-contact">
+                        <h2 class="map-title-contact">Our Location</h2>
+                        <p class="map-description-contact">Strategically located in the industrial district for easy fleet access</p>
+                    </div>
+                    
+                    <div class="map-container-contact">
+                        <iframe 
+                            class="map-frame-contact"
+src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d766.4562490474993!2d-86.3061606!3d39.7884826!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x886ca9002a409861%3A0x53cca8614c8a0af7!2sBrownsburg%20Truck%20Center!5e0!3m2!1sen!2sin!4v1751216579837!5m2!1sen!2sin"                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Scroll to Top-->
+    <!-- Scroll to Top Button -->
+<div id="scrollToTop">
+  <i class="fas fa-cog"></i>
+</div>
 
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
@@ -1813,7 +2444,49 @@ We provide expert repair and maintenance services for all types of trucks, with 
       videotimer.play(); // Ensure it resumes playback
     }
   }, 30000); // 30,000 milliseconds = 30 sec
-        
+
+  //contact
+  // Add subtle hover effects for better interactivity
+        document.querySelectorAll('.contact-item-contact').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.backgroundColor = 'var(--secondary-color)';
+                this.style.borderRadius = '8px';
+                this.style.margin = '0 -16px';
+                this.style.padding = '20px 16px';
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                this.style.backgroundColor = 'transparent';
+                this.style.borderRadius = '0';
+                this.style.margin = '0';
+                this.style.padding = '20px 0';
+            });
+        });
+        //loader
+  window.addEventListener("load", function () {
+    document.body.classList.add("loaded");
+  });
+  //scroll to top
+  const scrollBtn = document.getElementById('scrollToTop');
+  const icon = scrollBtn.querySelector('i');
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 200) {
+      scrollBtn.classList.add('show');
+      icon.classList.add('rotating');
+    } else {
+      scrollBtn.classList.remove('show');
+      icon.classList.remove('rotating');
+    }
+  });
+
+  scrollBtn.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+
     </script>
 </body>
 </html>
