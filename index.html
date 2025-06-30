@@ -421,6 +421,26 @@
                 padding: 0 1rem;
             }
         }
+        /* Target foldable devices with specific aspect ratios or screen widths */
+@media (max-width: 850px) and (min-aspect-ratio: 4/3), (max-width: 850px) and (min-width: 700px) {
+    .nav-container {
+        padding: 0 1rem; /* Reduce padding for foldable devices */
+        width: 100%; /* Ensure full width */
+    }
+
+    .navbar {
+        width: 100vw; /* Reinforce full viewport width */
+        right: 0; /* Ensure no right offset */
+    }
+
+    .logo {
+        font-size: 1.5rem; /* Slightly smaller logo for better fit */
+    }
+
+    .mobile-menu-toggle {
+        margin-right: 0.5rem; /* Adjust toggle button spacing */
+    }
+}
 
         /* Animation Classes */
         .fade-in {
@@ -1768,6 +1788,198 @@
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+#callButton {
+  position: fixed;
+  bottom: 100px; /* adjust as needed */
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  background: var(--primary-color);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.7rem;
+  border-radius: 50%;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  z-index: 1000;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  opacity: 0;
+  pointer-events: none;
+}
+
+#callButton.show {
+  opacity: 1;
+  pointer-events: all;
+}
+
+#callButton:hover {
+  transform: scale(1.1);
+}
+/*Footer*/
+ /* Footer Section */
+        .footer-section {
+  background: var(--primary-color);
+  color: var(--white);
+  padding: 2rem 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+}
+
+.footer-column {
+  padding: 0.5rem 0;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.footer-logo img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.footer-logo span {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--white);
+}
+
+.footer-column h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--accent-color);
+  position: relative;
+}
+
+.footer-column h3::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 30px;
+  height: 2px;
+  background: var(--accent-color);
+  border-radius: 1px;
+}
+
+.footer-contact p,
+.footer-links a {
+  font-size: 0.9rem;
+  color: var(--white);
+  opacity: 0.85;
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+  transition: all 0.3s ease;
+}
+
+.footer-links a {
+  text-decoration: none;
+  display: block;
+}
+
+.footer-links a:hover,
+.footer-contact a:hover {
+  color: var(--accent-color);
+  transform: translateX(4px);
+}
+
+.footer-contact a {
+  color: var(--white);
+  text-decoration: none;
+}
+
+.footer-social {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.footer-social a {
+  color: var(--white);
+  font-size: 1.3rem;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.footer-social a:hover {
+  color: var(--accent-color);
+  transform: scale(1.15);
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 2rem;
+  padding-top: 1rem;
+  text-align: center;
+  font-size: 0.85rem;
+  opacity: 0.8;
+  color: var(--white);
+}
+
+/* Responsive Tweaks */
+@media (max-width: 768px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 1.5rem;
+  }
+
+  .footer-logo {
+    justify-content: center;
+  }
+
+  .footer-column h3::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .footer-social {
+    justify-content: center;
+  }
+
+  .footer-links a:hover,
+  .footer-contact a:hover {
+    transform: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-logo img {
+    width: 36px;
+    height: 36px;
+  }
+
+  .footer-logo span {
+    font-size: 1.1rem;
+  }
+
+  .footer-column h3 {
+    font-size: 1rem;
+  }
+
+  .footer-contact p,
+  .footer-links a {
+    font-size: 0.85rem;
+  }
+
+  .footer-social a {
+    font-size: 1.2rem;
+  }
+}
 
     </style>
 </head>
@@ -2284,7 +2496,7 @@ We provide expert repair and maintenance services for all types of trucks, with 
                             </div>
                             <div class="contact-content-contact">
                                 <h4>Email Contact</h4>
-                                <p><a href="mailto:info@truckfixpro.com">info@truck.com</a></p>
+                                <p><a href="shop@volvo.us.com">shop@volvo.us.com</a></p>
                             </div>
                         </li>
 
@@ -2306,7 +2518,7 @@ We provide expert repair and maintenance services for all types of trucks, with 
                             <i class="fas fa-phone"></i>
                             Call Now
                         </a>
-                        <a href="mailto:info@truckfixpro.com" class="btn-contact btn-secondary-contact">
+                        <a href="mailto:shop@volvo.us.com" class="btn-contact btn-secondary-contact">
                             <i class="fas fa-envelope"></i>
                             Send Email
                         </a>
@@ -2331,8 +2543,69 @@ src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d766.4562490474993!2d-8
             </div>
         </div>
     </div>
+
+    <footer class="footer-section">
+        <div class="footer-container">
+            <!-- Logo and Description -->
+            <div class="footer-column" data-aos="fade-up" data-aos-duration="800">
+                <div class="footer-logo">
+                    <img src="./assets/blacklogo.png" alt="Brownsburg Truck Center Logo">
+                    <span>BTC</span>
+                </div>
+                <p>
+                    Brownsburg Truck Center specializes in Volvo truck repair and maintenance, delivering reliable, efficient, and professional services to keep your fleet on the road.
+                </p>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="footer-column" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+                <h3>Contact Us</h3>
+                <div class="footer-contact">
+                    <p><i class="fas fa-map-marker-alt"></i> 8230 Country Club Pl, Indianapolis, IN, United States</p>
+                    <p><i class="fas fa-phone"></i> <a href="tel:+(463) 900 1997">(463) 900 1997</a></p>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:shop@volvo.us.com">shop@volvo.us.com</a></p>
+                    <p><i class="fas fa-clock"></i> Mon-Fri: 9:00 AM - 9:00 PM</p>
+                    <p><i class="fas fa-clock"></i> Sat: 10:00 AM - 4:00 PM</p>
+                    <p><i class="fas fa-clock"></i> Sun: Closed</p>
+                </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="footer-column" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+                <h3>Quick Links</h3>
+                <div class="footer-links">
+                    <a href="#about">About Us</a>
+                    <a href="#service-section">Services</a>
+                    <a href="#review">Reviews</a>
+                    <a href="#contact">Contact</a>
+                    <a href="#quote">Get Quote</a>
+                </div>
+            </div>
+
+            <!-- Social Media -->
+            <div class="footer-column" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
+                <h3>Follow Us</h3>
+                <div class="footer-social">
+                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://twitter.com" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
+            <p>&copy; <span id="current-year"></span> Brownsburg Truck Center. All rights reserved.</p>
+        </div>
+    </footer>
+
     <!--Scroll to Top-->
     <!-- Scroll to Top Button -->
+     <div id="callButton">
+  <a style="text-decoration: none; color: white;" href="tel:+ (463) 900 1997"><i class="fas fa-phone"></i></a>
+</div>
+
 <div id="scrollToTop">
   <i class="fas fa-cog"></i>
 </div>
@@ -2486,6 +2759,14 @@ src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d766.4562490474993!2d-8
       behavior: 'smooth'
     });
   });
+window.addEventListener("scroll", () => {
+  const callBtn = document.getElementById("callButton");
+  if (window.scrollY > 100) {
+    callBtn.classList.add("show");
+  } else {
+    callBtn.classList.remove("show");
+  }
+});
 
     </script>
 </body>
